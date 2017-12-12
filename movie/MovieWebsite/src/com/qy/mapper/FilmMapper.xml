@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="film">
+  	<select id="queryFilm" resultType="map">
+  		<![CDATA[
+         select
+			film_id,
+			film_name,
+			film_pic,
+			film_years,
+			director,
+			actors,
+			short_comment,
+			synopsis,
+			douban_rating,
+			bt_link,
+			sort
+		from
+			tb_film    
+         ]]>
+  	</select>
+  	<select id="queryFilmOrderByDoubanDesc" resultType="map">
+  		<![CDATA[
+         select
+			film_id,
+			film_name,
+			film_pic,
+			film_years,
+			director,
+			actors,
+			short_comment,
+			synopsis,
+			douban_rating,
+			bt_link,
+			sort
+		from
+			tb_film  order by douban_rating desc  
+         ]]>
+  	</select>
+  	<select id="queryFilmById" parameterType="integer" resultType="map">
+         <![CDATA[
+          select 
+          	film_id,
+			film_name,
+			film_pic,
+			film_years,
+			director,
+			actors,
+			short_comment,
+			synopsis,
+			douban_rating,
+			bt_link,
+			sort
+          from   tb_film   where film_id=#{value}   
+         ]]>
+	</select>
+  	<!-- <insert id="addFilm" parameterType="map">
+  		<![CDATA[
+	 		insert into tb_film (
+				film_name,
+				film_pic,
+				film_years,
+				director,
+				actors,
+				short_comment,
+				synopsis,
+				douban_rating,
+				bt_link,
+				sort
+				)
+			values
+				()
+		 ]]>
+  	</insert> -->
+  </mapper>

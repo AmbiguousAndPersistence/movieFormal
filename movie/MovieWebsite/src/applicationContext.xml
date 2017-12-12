@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+       http://www.springframework.org/schema/context  http://www.springframework.org/schema/context/spring-context-3.2.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd">
+	<!-- 配置数据源 -->
+	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
+		<property name="driverClassName">
+			<value>com.mysql.jdbc.Driver</value>
+		</property>
+		<property name="username">
+			<value>root</value>
+		</property>
+		<property name="password">
+			<value></value>
+		</property>
+		<property name="url"
+			value="jdbc:mysql://172.23.3.130:3306/movie?useUnicode=true&amp;characterEncoding=UTF8&amp;zeroDateTimeBehavior=convertToNull" />
+		<!-- 其它参数 -->
+		<property name="maxIdle">
+			<!-- 最大空闲连接数 -->
+			<value>10</value>
+		</property>
+		<property name="maxTotal">
+			<!-- 最大连接数量 -->
+			<value>50</value>
+		</property>
+		<property name="maxWaitMillis">
+			<!-- 最大连接等待时间(毫秒) -->
+			<value>6000</value>
+		</property>
+	</bean>
+	<!-- 配置sqlSessionFactory -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+		<!-- 配置SQL Mapper文件 -->
+		<property name="mapperLocations">
+			<array>
+				<value>classpath:com/qy/mapper/*.xml</value>
+			</array>
+		</property>
+	</bean>
+	<!-- 配置spring事务管理器 -->
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+	</bean>
+	<!-- 配置事务通知类型 -->
+	<tx:advice id="transactionManagerAdivce" transaction-manager="transactionManager">
+		<tx:attributes>
+			<!-- 所有查询的方法事务为只读,不允许修改数据 -->
+			<tx:method name="get*" propagation="REQUIRED" read-only="true" />
+			<tx:method name="load*" propagation="REQUIRED" read-only="true" />
+			<tx:method name="query*" propagation="REQUIRED" read-only="true" />
+			<tx:method name="list*" propagation="REQUIRED" read-only="true" />
+			<tx:method name="search*" propagation="REQUIRED" read-only="true" />
+			<tx:method name="find*" propagation="REQUIRED" read-only="true" />
+			<tx:method name="check*" propagation="REQUIRED" read-only="true" />
+			<!-- 执行DML语句方法 -->
+			<tx:method name="add*" propagation="REQUIRED" rollback-for="java.lang.Exception" />
+			<tx:method name="insert*" propagation="REQUIRED"
+				rollback-for="java.lang.Exception" />
+			<tx:method name="update*" propagation="REQUIRED"
+				rollback-for="java.lang.Exception" />
+			<tx:method name="modify*" propagation="REQUIRED"
+				rollback-for="java.lang.Exception" />
+			<tx:method name="delete*" propagation="REQUIRED"
+				rollback-for="java.lang.Exception" />
+			<tx:method name="*" propagation="REQUIRED" rollback-for="java.lang.Exception" />
+		</tx:attributes>
+	</tx:advice>
+	<!-- 事务AOP配置 -->
+	<aop:config>
+		<aop:pointcut expression="execution(* com.qy.service.*.*(..))"
+			id="transactionManagerPointcut" />
+		<aop:advisor advice-ref="transactionManagerAdivce"
+			pointcut-ref="transactionManagerPointcut" />
+	</aop:config>
+	<!-- 启用spring 注解 -->
+	<context:component-scan
+		base-package="com.qy.dao,com.qy.service" />
+</beans>
