@@ -15,7 +15,7 @@ public class FilmDaoMysqlImpl extends BaseDao implements FilmDao {
 		// TODO Auto-generated method stub
 		return getSqlSession().selectList("queryFilm");
 	}
-
+//test
 	@Override
 	public List<Map<String, Object>> queryFilmOrderByDoubanDesc() {
 		// TODO Auto-generated method stub
