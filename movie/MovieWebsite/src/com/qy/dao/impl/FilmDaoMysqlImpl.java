@@ -27,5 +27,6 @@ public class FilmDaoMysqlImpl extends BaseDao implements FilmDao {
 		// TODO Auto-generated method stub
 		return getSqlSession().selectOne("queryFilmById");
 	}
+	//commit by kerwin
 
 }
