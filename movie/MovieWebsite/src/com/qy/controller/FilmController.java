@@ -1,5 +1,10 @@
 package com.qy.controller;
 
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
@@ -21,7 +26,7 @@ public class FilmController {
 		jsonData = new JSONData();
 	}
 	@Autowired
-	@Qualifier("depService")
+	@Qualifier("filmSerivce")
 	private FilmService filmService;
 	
 	/**
@@ -29,12 +34,32 @@ public class FilmController {
 	 * @return
 	 */
 	@RequestMapping("query_ByDouban")
-	@ResponseBody
+	//@ResponseBody
 	// 将方法返回值作为相应数据,而不是返回的页面路径
-	public String queryFilmOrderByDoubanDesc() {
+	public String queryFilmOrderByDoubanDesc(HttpSession session) {
+		List<Map<String, Object>> filmList=filmService.queryFilmOrderByDoubanDesc();
+		session.setAttribute("filmList", filmList);
 		// 查询出来数据用JSONData来封装
-		jsonData.setRows(filmService.queryFilmOrderByDoubanDesc());
+		//jsonData.setRows();
 		// 返回json数据
-		return JSONObject.toJSONString(jsonData);
+		//return JSONObject.toJSONString(jsonData);
+		return "redirect:/rate_rank.jsp";
+	}
+	
+	/**
+	 * 根据电影id查询电影
+	 * @return
+	 */
+	@RequestMapping("query_ById")
+	//@ResponseBody
+	// 将方法返回值作为相应数据,而不是返回的页面路径
+	public String queryFilmByFilmId(Integer film_id,HttpSession session) {
+		Map<String, Object> film=filmService.queryFilmByFilmId(film_id);
+		session.setAttribute("film", film);
+		// 查询出来数据用JSONData来封装
+		//jsonData.setRows();
+		// 返回json数据
+		//return JSONObject.toJSONString(jsonData);
+		return "redirect:/detail.jsp";
 	}
 }

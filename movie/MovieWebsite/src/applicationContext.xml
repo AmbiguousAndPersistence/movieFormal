@@ -19,7 +19,7 @@
 			<value></value>
 		</property>
 		<property name="url"
-			value="jdbc:mysql://172.23.3.130:3306/movie?useUnicode=true&amp;characterEncoding=UTF8&amp;zeroDateTimeBehavior=convertToNull" />
+			value="jdbc:mysql://localhost:3306/movie?useUnicode=true&amp;characterEncoding=UTF8&amp;zeroDateTimeBehavior=convertToNull" />
 		<!-- 其它参数 -->
 		<property name="maxIdle">
 			<!-- 最大空闲连接数 -->

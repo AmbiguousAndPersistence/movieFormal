@@ -98,7 +98,7 @@ var _hmt = _hmt || [];
         <li>|</li>
         <li><a href="/movie/list/4----">科幻片</a></li>
         <li>|</li>
-        <li><a href="/movie/list/----g">评分最高</a></li>
+        <li><a href="${basePath }/film/query_ByDouban">评分最高</a></li>
         
       
         <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
