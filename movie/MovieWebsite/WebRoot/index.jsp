@@ -39,32 +39,102 @@ var _hmt = _hmt || [];
   s.parentNode.insertBefore(hm, s);
 })();
 </script> -->
+<link rel="apple-touch-icon" href="https://img3.doubanio.com/f/movie/d59b2715fdea4968a450ee5f6c95c7d7a2030065/pics/movie/apple-touch-icon.png">
+    <link href="https://img3.doubanio.com/f/shire/420c6a4b676c73bc6af48dfcdd18b662f5c223d7/css/douban.css" rel="stylesheet" type="text/css">
+    <link href="https://img3.doubanio.com/f/shire/ae3f5a3e3085968370b1fc63afcecb22d3284848/css/separation/_all.css" rel="stylesheet" type="text/css">
+    <link href="https://img3.doubanio.com/f/movie/8864d3756094f5272d3c93e30ee2e324665855b0/css/movie/base/init.css" rel="stylesheet">
+<link rel="stylesheet" href="https://img3.doubanio.com/f/movie/16289615a37a633d5df86634ac6583b08032bb7c/css/movie/home.css" />
+<link rel="stylesheet" href="https://img3.doubanio.com/misc/mixed_static/554ab01e9256e005.css">
+
+    <link rel="shortcut icon" href="https://img3.doubanio.com/favicon.ico" type="image/x-icon">
+<style type="text/css">
+	#db-nav-movie {
+    background-color: #f0f3f5;
+}
+
+bundle.css:30
+.nav {
+    width: 100%;
+    min-width: 1040px;
+    overflow: hidden;
+    zoom: 1;
+    margin-bottom: 40px;
+}
+douban.css:1
+body, div, dl, dt, dd, ul, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, button, textarea, blockquote {
+    margin: 0;
+    padding: 0;
+}
+user agent stylesheet
+div {
+    display: block;
+}
+Inherited from body
+init.css:1
+html body, html td, html th, html .pl, html input {
+    font-size: 13px;
+}
+bundle.css:1
+body, td, th {
+    font: 12px Helvetica,Arial,sans-serif;
+    line-height: 1.62;
+}
+douban.css:1
+body, td, th {
+    font: 12px Helvetica,Arial,sans-serif;
+    line-height: 1.62;
+}
+</style>
 </head>
 
 <body>    
-<div id="header" class="clearfix">
-    <div id="header-in">
-                <h1 class="logo"><a href="${basePath }" title="80s手机电影,专业MP4手机电影，80s手机电影官方网站">80s手机电影</a></h1>
-                <div class="hiright">
-            <div id="search-b" style="">
-                <form id="zn_search_form" action="/search" method="post" target="_self">
-                    <input id="search-box" type="text" name="keyword" maxlength="100" placeholder="站内搜索..." >
-                    <input type="submit" class="search-btn" value="搜索" >
-                </form> 
-            </div>
-            <ul id="hot-words">
-                                <li><a href="/ju/21736" style="color:#C00">推理笔记</a></li>
-                                <li><a href="/movie/21716" style="color:#F60">羞羞的铁拳</a></li>
-                                <li><a href="/movie/21156" style="color:#09F">寻梦环游记</a></li>
-                                <li><a href="/tag/128" style="color:#666">极限特工</a></li>
-                                <li><a href="/movie/21184" style="color:#F60">战狼2</a></li>
-                                <li><a href="https://cnc.m.80s.tw/ju/21865" style="color:#C00">致我们单纯的小美好</a></li>
-                                <li><a href="/ju/21740" style="color:#09F">猎场</a></li>
-                                <li><a href="/ju/21515" style="color:#8DBF07">大话西游之爱你一万年</a></li>
-                                <li><a href="http://www.80s.tw/80s/index.html" style="color:#F60">80s官网APP正式上线</a></li>
-                            </ul>
-        </div>
+<div id="db-nav-movie" class="nav">
+  <div class="nav-wrap">
+  <div class="nav-primary">
+    <div class="nav-logo">
+      <a href="https://movie.douban.com">豆瓣电影</a>
     </div>
+    <div class="nav-search">
+      <form action="https://movie.douban.com/subject_search" method="get">
+        <fieldset>
+          <legend>搜索：</legend>
+          <label for="inp-query">
+          </label>
+          <div class="inp"><input id="inp-query" name="search_text" size="22" maxlength="60" placeholder="搜索电影、电视剧、综艺、影人" value="" autocomplete="off"></div>
+          <div class="inp-btn"><input type="submit" value="搜索"></div>
+          <input type="hidden" name="cat" value="1002">
+        </fieldset>
+      </form>
+    </div>
+  </div>
+  </div>
+  <div class="nav-secondary">
+    
+
+<div class="nav-items">
+  <ul>
+    <li><a href="https://movie.douban.com/mine">我看</a>
+    </li>
+    <li><a href="https://movie.douban.com/cinema/nowplaying/">影讯&amp;购票</a>
+    </li>
+    <li><a href="https://movie.douban.com/explore">选电影</a>
+    </li>
+    <li><a href="https://movie.douban.com/tv/">电视剧</a>
+    </li>
+    <li><a href="https://movie.douban.com/chart">排行榜</a>
+    </li>
+    <li><a href="https://movie.douban.com/tag/">分类</a>
+    </li>
+    <li><a href="https://movie.douban.com/review/best/">影评</a>
+    </li>
+    <li><a href="https://movie.douban.com/annual2016/?source=navigation">2016年度榜单</a>
+    </li>
+    <li><a href="https://movie.douban.com/standbyme/2016?source=navigation">2016观影报告</a>
+    </li>
+  </ul>
+</div>
+
+  </div>
 </div>
 <div id="nav" class="clearfix">
     <ul>
