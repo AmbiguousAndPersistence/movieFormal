@@ -6,7 +6,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * 字符串处理工�?
+ * 字符串处理工�?
  * 
  * @author luliujun
  * 
@@ -20,7 +20,7 @@ public final class StringUtils {
 	}
 
 	/**
-	 * 将字符串中全角字符转成半角字�?
+	 * 将字符串中全角字符转成半角字符
 	 * 
 	 * @param str
 	 * @return
@@ -46,7 +46,7 @@ public final class StringUtils {
 	}
 
 	/**
-	 * 过滤字符串所有空�?
+	 * 过滤字符串所有空格
 	 * 
 	 * @param str
 	 * @return
@@ -89,7 +89,7 @@ public final class StringUtils {
 	}
 
 	/**
-	 * 判断是否为空字符�?
+	 * 判断是否为空字符串
 	 * 
 	 * @param str
 	 * @return
@@ -129,7 +129,7 @@ public final class StringUtils {
 	}
 
 	/**
-	 * 获取空json格式字符�?{}
+	 * 获取空json格式字符�?{}
 	 * 
 	 * @return
 	 */
@@ -162,11 +162,11 @@ public final class StringUtils {
 	}
 
 	/**
-	 * 转换字符�?
+	 * 转换字符串
 	 * 
 	 * @param obj
-	 *            待转换字符串的对�?
-	 * @return 字符�?
+	 *            待转换字符串的对象
+	 * @return 字符串
 	 */
 	public final static String convertString(Object obj) {
 		if (null == obj) {
@@ -303,7 +303,7 @@ public final class StringUtils {
 	}
 
 	/**
-	 * 获取�?��配的子字符串数量
+	 * 获取匹配的子字符串数量
 	 * 
 	 * @param str
 	 * @param regex

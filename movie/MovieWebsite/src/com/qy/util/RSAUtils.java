@@ -29,17 +29,17 @@ public class RSAUtils {
 	public static final String PRIVATE_KEY = "MIICdQIBADANBgkqhkiG9w0BAQEFAASCAl8wggJbAgEAAoGBAJpy06HLQLMkvavY7MTRa7oZxDBn5UcDXBuqzCCCWoG/obxZBztixEdq/knYDZpwCUzme+RWr3qnTFmsw3TvcNv28xJdy35HPchh9phyrO6Rsd2FtuZ8QUpx6kQqs5CA53MjAljtTgYfNwGR2bcsD4EKecnhXt52oDybAsPpZ2TBAgMBAAECgYBvqTayEXVcTuLF3BYJkXJ14G0DpgmQFrC/2/KqSjPO/FGdDyx4Vcab75Gap5XmIrvGmhfWFInXfh5n8sx4vSd07fA7NRBkPiWSZiVb/wSFl+4PpmQht+ARTixjClAcTfW5jC+/kJBZTNZFtPKBC6QMYDjLPT+sR+dnLqyhXup78QJBAONh9zjJ5nk1dykOBqBzK8nKHQslf5FHvHKViRxFspJG+JGCc/GJNoHRhwW2k7jWc3j1IHD+mG7aAHMhZu4s/MUCQQCt4v+oaNqI04sKmyIGhiJu7i2mSO+vKMVGNvhCBCt/UyBl4+qUTTdTGLW1jNkwuj6I0YXIxnJvQScqJ+/kQr/NAkAiZZ16b8B3sYjXIxIJj6KeIf8GwqNrnMh7JPfa2QhMbIQJrwxPC4y9Uq70RExQd9B8CcjgjwMMMdpDkFf7y75pAkBqA3+DGYpC6VZX/QTdnWHY5/WE7+rRi7XafSEWfpxWYEPcWvxltj4It4PxUBIKl0IRAEzkf7i9A6fxF7A2JkvxAkAfm+NLLoY9Sq25ieVJA+wOLN8vKwzCa7yw49JYMTjHkDOEsKqy/41d+NnquNQ8Q9DDjlQ2qvzKzPo8GcwK8ivC";
 	private static final String PUBLIC_KEY = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCactOhy0CzJL2r2OzE0Wu6GcQwZ+VHA1wbqswgglqBv6G8WQc7YsRHav5J2A2acAlM5nvkVq96p0xZrMN073Db9vMSXct+Rz3IYfaYcqzukbHdhbbmfEFKcepEKrOQgOdzIwJY7U4GHzcBkdm3LA+BCnnJ4V7edqA8mwLD6WdkwQIDAQAB";
 
-	/** RSA�?��加密明文大小 */
+	/** RSA最大加密明文大小 */
 	private static final int MAX_ENCRYPT_BLOCK = 117;
 
-	/** RSA�?��解密密文大小 */
+	/** RSA最大解密密文大小 */
 	private static final int MAX_DECRYPT_BLOCK = 128;
 
 	/** 加密算法RSA */
 	private static final String KEY_ALGORITHM = "RSA";
 
 	/**
-	 * 生成公钥和私�?
+	 * 生成公钥和私钥
 	 * 
 	 * @throws Exception
 	 * 
@@ -60,11 +60,11 @@ public class RSAUtils {
 
 	/**
 	 * 使用模和指数生成RSA公钥
-	 * 注意：�?此代码用了默认补位方式，为RSA/None/PKCS1Padding，不同JDK默认的补位方式可能不同，如Android默认是RSA
-	 * /None/NoPadding�?
+	 * 注意：�?此代码用了默认补位方式，为RSA/None/PKCS1Padding，不同JDK默认的补位方式可能不同，如Android默认是RSA
+	 * /None/NoPadding�?
 	 * 
 	 * @param modulus
-	 *            �?
+	 *            �?
 	 * @param exponent
 	 *            公钥指数
 	 * @return
@@ -84,11 +84,11 @@ public class RSAUtils {
 
 	/**
 	 * 使用模和指数生成RSA私钥
-	 * 注意：�?此代码用了默认补位方式，为RSA/None/PKCS1Padding，不同JDK默认的补位方式可能不同，如Android默认是RSA
-	 * /None/NoPadding�?
+	 * 注意：�?此代码用了默认补位方式，为RSA/None/PKCS1Padding，不同JDK默认的补位方式可能不同，如Android默认是RSA
+	 * /None/NoPadding�?
 	 * 
 	 * @param modulus
-	 *            �?
+	 *            �?
 	 * @param exponent
 	 *            指数
 	 * @return
@@ -119,7 +119,7 @@ public class RSAUtils {
 		X509EncodedKeySpec x509KeySpec = new X509EncodedKeySpec(keyBytes);
 		KeyFactory keyFactory = KeyFactory.getInstance(KEY_ALGORITHM);
 		Key publicK = keyFactory.generatePublic(x509KeySpec);
-		// 对数据加�?
+		// 对数据加�?
 		// Cipher cipher = Cipher.getInstance(keyFactory.getAlgorithm());
 		Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
 		cipher.init(Cipher.ENCRYPT_MODE, publicK);
@@ -128,7 +128,7 @@ public class RSAUtils {
 		int offSet = 0;
 		byte[] cache;
 		int i = 0;
-		// 对数据分段加�?
+		// 对数据分段加�?
 		while (inputLen - offSet > 0) {
 			if (inputLen - offSet > MAX_ENCRYPT_BLOCK) {
 				cache = cipher.doFinal(dataByte, offSet, MAX_ENCRYPT_BLOCK);
@@ -166,7 +166,7 @@ public class RSAUtils {
 		int offSet = 0;
 		byte[] cache;
 		int i = 0;
-		// 对数据分段解�?
+		// 对数据分段解密
 		while (inputLen - offSet > 0) {
 			if (inputLen - offSet > MAX_DECRYPT_BLOCK) {
 				cache = cipher
@@ -185,7 +185,7 @@ public class RSAUtils {
 	}
 
 	/**
-	 * 获取模数和密�?
+	 * 获取模数和密�?
 	 * 
 	 * @return
 	 */
@@ -217,10 +217,10 @@ public class RSAUtils {
 	}
 
 	/**
-	 * 从字符串中加载公�?
+	 * 从字符串中加载公钥
 	 * 
 	 * @param publicKeyStr
-	 *            公钥数据字符�?
+	 *            公钥数据字符串
 	 * @throws Exception
 	 *             加载公钥时产生的异常
 	 */
@@ -240,8 +240,8 @@ public class RSAUtils {
 	}
 
 	/**
-	 * 从字符串中加载私�?br>
-	 * 加载时使用的是PKCS8EncodedKeySpec（PKCS#8编码的Key指令）�?
+	 * 从字符串中加载私钥br>
+	 * 加载时使用的是PKCS8EncodedKeySpec（PKCS#8编码的Key指令）�?
 	 * 
 	 * @param privateKeyStr
 	 * @return

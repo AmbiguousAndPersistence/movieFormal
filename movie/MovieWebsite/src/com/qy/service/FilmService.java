@@ -5,17 +5,17 @@ import java.util.Map;
 
 public interface FilmService {
 	/**
-	 * ²éÕÒËùÓĞµçÓ°
+	 * æŸ¥æ‰¾æ‰€æœ‰ç”µå½±
 	 * @return
 	 */
 	public List<Map<String, Object>> queryFilm();
 	/**
-	 * ²éÕÒµçÓ°£¨°´ÕÕ¶¹°êÆÀ·Ö½µĞòÅÅÁĞ£©
+	 * æŸ¥æ‰¾ç”µå½±ï¼ˆæŒ‰ç…§è±†ç“£è¯„åˆ†é™åºæ’åˆ—ï¼‰
 	 * @return
 	 */
 	public List<Map<String, Object>> queryFilmOrderByDoubanDesc();
 	/**
-	 * ¸ù¾İµçÓ°id²éÕÒµçÓ°
+	 * æ ¹æ®ç”µå½±idæŸ¥æ‰¾ç”µå½±
 	 * @param film_id
 	 * @return
 	 */

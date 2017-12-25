@@ -8,7 +8,7 @@ package com.qy.util;
 public class JSONData {
 
 	private int total = 0;
-    private int count=0;//DML操作影响的行�?
+    private int count=0;//DML操作影响的行数
 	private Object rows;
 
 	public JSONData() {
