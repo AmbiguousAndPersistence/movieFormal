@@ -14,7 +14,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="renderer" content="webkit">
 <meta name="referrer" content="always">
-<title>豆瓣电影</title>
+<title>千影电影网</title>
 
 <meta name="baidu-site-verification" content="cZdR4xxR7RxmM4zE" />
 <meta http-equiv="Pragma" content="no-cache">
@@ -92,6 +92,7 @@ img {
 								<input id="inp-query" name="search_text" size="22"
 									maxlength="60" placeholder="电影、电视剧、综艺、影人" value="">
 							</div>
+
 							<div class="inp-btn">
 								<input
 									style="background:url('${basePath}/static/img/test.png'); "
