@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -6,7 +7,6 @@
 			+ path + "/";
 	pageContext.setAttribute("basePath", basePath);
 %>
-
 
 <!DOCTYPE html>
 <html lang="zh-cmn-Hans" class="ua-windows ua-webkit">
@@ -45,7 +45,7 @@
 
 
 <link rel="stylesheet"
-	href="https://img3.doubanio.com/f/movie/16289615a37a633d5df86634ac6583b08032bb7c/css/movie/home.css" />
+	href="${basePath }/static/css/home.css" />
 
 
 <style type="text/css"></style>
@@ -55,16 +55,27 @@ img {
 }
 </style>
 <link rel="stylesheet"
-	href="https://img3.doubanio.com/misc/mixed_static/554ab01e9256e005.css">
+	href="${basePath }/static/css/misc.css"> 
 <!-- 网页标题前图片 -->
 <link rel="shortcut icon" href="https://img3.doubanio.com/favicon.ico"
 	type="image/x-icon">
+<script src="${basePath }/static/js/jquery.min.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$.ajax({
+			type : "post",
+			url : "${basePath}/film/query_newest"
+	
+		});
+	});
+</script>
 </head>
 
 <body>
 
 	<link href="${basePath }/static/css/bundle.css" rel="stylesheet"
 		type="text/css">
+		<!-- <link href="//img3.doubanio.com/dae/accounts/resources/ecb0b1e/movie/bundle.css" rel="stylesheet" type="text/css"> -->
 
 	<div id="db-nav-movie" class="nav">
 		<div class="nav-wrap">
@@ -134,16 +145,16 @@ img {
 				<div id="dale_movie_homepage_top_large"></div>
 
 
-				<div class="article">
+				<div class="article" >
 
 					<div id="dale_movie_home_main_top"></div>
 
 					<div id="screening" class="s" data-dstat-areaid="70"
-						data-dstat-mode="click,expose">
+						data-dstat-mode="click,expose" style="width:675px; ">
 						<div class="screening-hd">
 							<ul class="nav nav-tabs">
 								<li style="margin-top: 0px;padding-top: 0px;" class="active"><a
-									href="#panel-449764" data-toggle="tab" aria-expanded="true">热门电影</a></li>
+									href="#panel-449764" data-toggle="tab" aria-expanded="true">最近电影</a></li>
 								<li class=""><a href="#panel-413468" data-toggle="tab"
 									aria-expanded="false">最新电影</a></li>
 								<li class=""><a href="#panel-413469" data-toggle="tab"
@@ -168,748 +179,31 @@ img {
 									onclick="moreurl(this, {from:'mv_l_w'})" href="./later/">即将上映&raquo;</a></span>
 							</h2> -->
 						</div>
-						<div class="screening-bd tab-content">
+						<div class="screening-bd tab-content" style="overflow:auto; ">
 							<div class="tab-pane active" id="panel-449764">
-								<ul class="ui-slide-content" data-slide-index="1"
-									data-index-max="5" style="left: -2100px;">
-
-
-									<li class="ui-slide-item" data-title="奇门遁甲" data-release="2017"
-										data-rate="4.8" data-star="25"
-										data-trailer="https://movie.douban.com/subject/26661191/trailer"
-										data-ticket="https://movie.douban.com/ticket/redirect/?url=https%3A%2F%2Fm.maoyan.com%2Fcinema%2Fmovie%2F344183%3F_v_%3Dyes%26merCode%3D1000011"
-										data-duration="113分钟" data-region="中国大陆" data-director="袁和平"
-										data-actors="董成鹏 / 倪妮 / 李治廷" data-intro="" data-enough="true"
-										data-rater="17444">
+								<ul class="ui-slide-content"  >
+								<c:forEach items="${filmList }" var="film">
+									<li class="ui-slide-item" >
 										<ul class="">
 											<li class="poster"><a
-												onclick="moreurl(this, {from:'mv_a_pst'})"
-												href="https://movie.douban.com/subject/26661191/?from=showing">
-													<img
-													src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2507566212.webp"
-													alt="奇门遁甲" rel="nofollow" class="">
-											</a></li>
-											<li class="title"><a
-												onclick="moreurl(this, {from:'mv_a_tl'})"
-												href="https://movie.douban.com/subject/26661191/?from=showing"
-												class="">奇门遁甲</a></li>
-
-										</ul>
-
-
-									</li>
-									<li class="ui-slide-item" data-title="寻梦环游记 Coco"
-										data-release="2017" data-rate="9.1" data-star="45"
-										data-trailer="https://movie.douban.com/subject/20495023/trailer"
-										data-ticket="https://movie.douban.com/ticket/redirect/?url=https%3A%2F%2Fm.maoyan.com%2Fcinema%2Fmovie%2F342068%3F_v_%3Dyes%26merCode%3D1000011"
-										data-duration="105分钟" data-region="美国" data-director="李·昂克里奇"
-										data-actors="安东尼·冈萨雷斯 / 盖尔·加西亚·贝纳尔 / 本杰明·布拉特" data-intro=""
-										data-enough="true" data-rater="286601">
-										<ul class="">
-											<li class="poster"><a
-												onclick="moreurl(this, {from:'mv_a_pst'})"
-												href="https://movie.douban.com/subject/20495023/?from=showing">
-													<img
-													src="https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2503997609.webp"
-													alt="寻梦环游记" rel="nofollow" class="">
-											</a></li>
-											<li class="title"><a
-												onclick="moreurl(this, {from:'mv_a_tl'})"
-												href="https://movie.douban.com/subject/20495023/?from=showing"
-												class="">寻梦环游记</a></li>
-											<li class="rating"><span class="rating-star allstar45"></span><span
-												class="subject-rate">9.1</span></li>
-											<li class="ticket_btn"><span><a
-													onclick="moreurl(this, {from:'mv_b_tc'})"
-													href="https://movie.douban.com/ticket/redirect/?url=https%3A%2F%2Fm.maoyan.com%2Fcinema%2Fmovie%2F342068%3F_v_%3Dyes%26merCode%3D1000011"
-													target="_blank">选座购票</a></span></li>
-										</ul>
-
-
-									</li>
-									<li class="ui-slide-item" data-title="帕丁顿熊2 Paddington 2"
-										data-release="2017" data-rate="8.3" data-star="45"
-										data-trailer="https://movie.douban.com/subject/26340419/trailer"
-										data-ticket="https://movie.douban.com/ticket/redirect/?url=https%3A%2F%2Fm.maoyan.com%2Fcinema%2Fmovie%2F343905%3F_v_%3Dyes%26merCode%3D1000011"
-										data-duration="103分钟" data-region="英国" data-director="保罗·金"
-										data-actors="本·卫肖 / 休·格兰特 / 休·博内威利" data-intro=""
-										data-enough="true" data-rater="43180">
-										<ul class="">
-											<li class="poster"><a
-												onclick="moreurl(this, {from:'mv_a_pst'})"
-												href="https://movie.douban.com/subject/26340419/?from=showing">
-													<img
-													src="https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2506466229.webp"
-													alt="帕丁顿熊2" rel="nofollow" class="">
-											</a></li>
-											<li class="title"><a
-												onclick="moreurl(this, {from:'mv_a_tl'})"
-												href="https://movie.douban.com/subject/26340419/?from=showing"
-												class="">帕丁顿熊2</a></li>
-											<li class="rating"><span class="rating-star allstar45"></span><span
-												class="subject-rate">8.3</span></li>
-											<li class="ticket_btn"><span><a
-													onclick="moreurl(this, {from:'mv_b_tc'})"
-													href="https://movie.douban.com/ticket/redirect/?url=https%3A%2F%2Fm.maoyan.com%2Fcinema%2Fmovie%2F343905%3F_v_%3Dyes%26merCode%3D1000011"
-													target="_blank">选座购票</a></span></li>
-										</ul>
-
-
-									</li>
-									<li class="ui-slide-item s" data-dstat-areaid="70_2"
-										data-dstat-mode="click,expose"
-										data-dstat-watch=".ui-slide-content"
-										data-dstat-viewport=".screening-bd"
-										data-title="至爱梵高·星空之谜 Loving Vincent" data-release="2017"
-										data-rate="8.6" data-star="45"
-										data-trailer="https://movie.douban.com/subject/25837262/trailer"
-										data-ticket="https://movie.douban.com/ticket/redirect/?url=https%3A%2F%2Fm.maoyan.com%2Fcinema%2Fmovie%2F337443%3F_v_%3Dyes%26merCode%3D1000011"
-										data-duration="95分钟" data-region="英国" data-director="多洛塔·科别拉"
-										data-actors="道格拉斯·布斯 / 罗伯特·古拉奇克 / 埃莉诺·汤姆林森" data-intro=""
-										data-enough="true" data-rater="65844">
-										<ul class="">
-											<li class="poster"><a
-												onclick="moreurl(this, {from:'mv_a_pst'})"
-												href="https://movie.douban.com/subject/25837262/?from=showing">
-													<img
-													src="https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2506935748.webp"
-													alt="至爱梵高·星空之谜" rel="nofollow" class="">
-											</a></li>
-											<li class="title"><a
-												onclick="moreurl(this, {from:'mv_a_tl'})"
-												href="https://movie.douban.com/subject/25837262/?from=showing"
-												class="">至爱梵高·星...</a></li>
-											<li class="rating"><span class="rating-star allstar45"></span><span
-												class="subject-rate">8.6</span></li>
-											<li class="ticket_btn"><span><a
-													onclick="moreurl(this, {from:'mv_b_tc'})"
-													href="https://movie.douban.com/ticket/redirect/?url=https%3A%2F%2Fm.maoyan.com%2Fcinema%2Fmovie%2F337443%3F_v_%3Dyes%26merCode%3D1000011"
-													target="_blank">选座购票</a></span></li>
-										</ul>
-
-
-									</li>
-									<li class="ui-slide-item" data-title="圣诞奇妙公司 Santa &amp; Cie"
-										data-release="2017" data-rate="6.8" data-star="35"
-										data-trailer="https://movie.douban.com/subject/27011205/trailer"
-										data-ticket="https://movie.douban.com/ticket/redirect/?url=https%3A%2F%2Fm.maoyan.com%2Fcinema%2Fmovie%2F1206402%3F_v_%3Dyes%26merCode%3D1000011"
-										data-duration="99分钟" data-region="法国" data-director="阿兰·夏巴"
-										data-actors="格什菲·法拉哈尼 / 奥黛丽·塔图 / 阿兰·夏巴" data-intro=""
-										data-enough="true" data-rater="1224">
-										<ul class="">
-											<li class="poster"><a
-												onclick="moreurl(this, {from:'mv_a_pst'})"
-												href="https://movie.douban.com/subject/27011205/?from=showing">
-													<img
-													src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2505778884.webp"
-													alt="圣诞奇妙公司" rel="nofollow" class="">
-											</a></li>
-											<li class="title"><a
-												onclick="moreurl(this, {from:'mv_a_tl'})"
-												href="https://movie.douban.com/subject/27011205/?from=showing"
-												class="">圣诞奇妙公司...</a></li>
-											<li class="rating"><span class="rating-star allstar35"></span><span
-												class="subject-rate">6.8</span></li>
-											<li class="ticket_btn"><span><a
-													onclick="moreurl(this, {from:'mv_b_tc'})"
-													href="https://movie.douban.com/ticket/redirect/?url=https%3A%2F%2Fm.maoyan.com%2Fcinema%2Fmovie%2F1206402%3F_v_%3Dyes%26merCode%3D1000011"
-													target="_blank">选座购票</a></span></li>
-										</ul>
-
-
-									</li>
-									<li class="ui-slide-item" data-title="至暗时刻 Darkest Hour"
-										data-release="2017" data-rate="8.6" data-star="45"
-										data-trailer="https://movie.douban.com/subject/26761416/trailer"
-										data-ticket="https://movie.douban.com/ticket/redirect/?url=https%3A%2F%2Fm.maoyan.com%2Fcinema%2Fmovie%2F346625%3F_v_%3Dyes%26merCode%3D1000011"
-										data-duration="125分钟" data-region="英国" data-director="乔·赖特"
-										data-actors="加里·奥德曼 / 克里斯汀·斯科特·托马斯 / 莉莉·詹姆斯" data-intro=""
-										data-enough="true" data-rater="43519">
-										<ul class="">
-											<li class="poster"><a
-												onclick="moreurl(this, {from:'mv_a_pst'})"
-												href="https://movie.douban.com/subject/26761416/?from=showing">
-													<img
-													src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2504277551.webp"
-													alt="至暗时刻" rel="nofollow" class="">
-											</a></li>
-											<li class="title"><a
-												onclick="moreurl(this, {from:'mv_a_tl'})"
-												href="https://movie.douban.com/subject/26761416/?from=showing"
-												class="">至暗时刻</a></li>
-											<li class="rating"><span class="rating-star allstar45"></span><span
-												class="subject-rate">8.6</span></li>
-											<li class="ticket_btn"><span><a
-													onclick="moreurl(this, {from:'mv_b_tc'})"
-													href="https://movie.douban.com/ticket/redirect/?url=https%3A%2F%2Fm.maoyan.com%2Fcinema%2Fmovie%2F346625%3F_v_%3Dyes%26merCode%3D1000011"
-													target="_blank">选座购票</a></span></li>
-										</ul>
-
-
-									</li>
-									<li class="ui-slide-item" data-title="七十七天" data-release="2017"
-										data-rate="6.6" data-star="35"
-										data-trailer="https://movie.douban.com/subject/26426026/trailer"
-										data-ticket="https://movie.douban.com/ticket/redirect/?url=https%3A%2F%2Fm.maoyan.com%2Fcinema%2Fmovie%2F618704%3F_v_%3Dyes%26merCode%3D1000011"
-										data-duration="115分钟" data-region="中国大陆" data-director="赵汉唐"
-										data-actors="江一燕 / 赵汉唐" data-intro="" data-enough="true"
-										data-rater="15295">
-										<ul class="">
-											<li class="poster"><a
-												onclick="moreurl(this, {from:'mv_a_pst'})"
-												href="https://movie.douban.com/subject/26426026/?from=showing">
-													<img
-													src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2503551480.webp"
-													alt="七十七天" rel="nofollow" class="">
-											</a></li>
-											<li class="title"><a
-												onclick="moreurl(this, {from:'mv_a_tl'})"
-												href="https://movie.douban.com/subject/26426026/?from=showing"
-												class="">七十七天</a></li>
-											<li class="rating"><span class="rating-star allstar35"></span><span
-												class="subject-rate">6.6</span></li>
-											<li class="ticket_btn"><span><a
-													onclick="moreurl(this, {from:'mv_b_tc'})"
-													href="https://movie.douban.com/ticket/redirect/?url=https%3A%2F%2Fm.maoyan.com%2Fcinema%2Fmovie%2F618704%3F_v_%3Dyes%26merCode%3D1000011"
-													target="_blank">选座购票</a></span></li>
-										</ul>
-
-
-									</li>
-									<li class="ui-slide-item" data-title="巨额来电 猜猜我是誰"
-										data-release="2017" data-rate="5.9" data-star="30"
-										data-trailer="https://movie.douban.com/subject/26985857/trailer"
-										data-ticket="https://movie.douban.com/ticket/redirect/?url=https%3A%2F%2Fm.maoyan.com%2Fcinema%2Fmovie%2F1203120%3F_v_%3Dyes%26merCode%3D1000011"
-										data-duration="123分钟" data-region="中国大陆" data-director="彭顺"
-										data-actors="陈学冬 / 张孝全 / 桂纶镁" data-intro="" data-enough="true"
-										data-rater="4497">
-										<ul class="">
-											<li class="poster"><a
-												onclick="moreurl(this, {from:'mv_a_pst'})"
-												href="https://movie.douban.com/subject/26985857/?from=showing">
-													<img
-													src="https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2505456879.webp"
-													alt="巨额来电" rel="nofollow" class="">
-											</a></li>
-											<li class="title"><a
-												onclick="moreurl(this, {from:'mv_a_tl'})"
-												href="https://movie.douban.com/subject/26985857/?from=showing"
-												class="">巨额来电</a></li>
-											<li class="rating"><span class="rating-star allstar30"></span><span
-												class="subject-rate">5.9</span></li>
-											<li class="ticket_btn"><span><a
-													onclick="moreurl(this, {from:'mv_b_tc'})"
-													href="https://movie.douban.com/ticket/redirect/?url=https%3A%2F%2Fm.maoyan.com%2Fcinema%2Fmovie%2F1203120%3F_v_%3Dyes%26merCode%3D1000011"
-													target="_blank">选座购票</a></span></li>
-										</ul>
-
-
-									</li>
-									<li class="ui-slide-item s" data-dstat-areaid="70_3"
-										data-dstat-mode="click,expose"
-										data-dstat-watch=".ui-slide-content"
-										data-dstat-viewport=".screening-bd"
-										data-title="烟花 打ち上げ花火、下から見るか？横から見るか？" data-release="2017"
-										data-rate="5.3" data-star="30"
-										data-trailer="https://movie.douban.com/subject/26930504/trailer"
-										data-ticket="https://movie.douban.com/ticket/redirect/?url=https%3A%2F%2Fm.maoyan.com%2Fcinema%2Fmovie%2F1198813%3F_v_%3Dyes%26merCode%3D1000011"
-										data-duration="90分钟" data-region="日本" data-director="新房昭之"
-										data-actors="广濑铃 / 菅田将晖 / 宫野真守" data-intro=""
-										data-enough="true" data-rater="12757">
-										<ul class="">
-											<li class="poster"><a
-												onclick="moreurl(this, {from:'mv_a_pst'})"
-												href="https://movie.douban.com/subject/26930504/?from=showing">
-													<img
-													src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2504455660.webp"
-													alt="烟花" rel="nofollow" class="">
-											</a></li>
-											<li class="title"><a
-												onclick="moreurl(this, {from:'mv_a_tl'})"
-												href="https://movie.douban.com/subject/26930504/?from=showing"
-												class="">烟花</a></li>
-											<li class="rating"><span class="rating-star allstar30"></span><span
-												class="subject-rate">5.3</span></li>
-											<li class="ticket_btn"><span><a
-													onclick="moreurl(this, {from:'mv_b_tc'})"
-													href="https://movie.douban.com/ticket/redirect/?url=https%3A%2F%2Fm.maoyan.com%2Fcinema%2Fmovie%2F1198813%3F_v_%3Dyes%26merCode%3D1000011"
-													target="_blank">选座购票</a></span></li>
-										</ul>
-
-
-									</li>
-									<li class="ui-slide-item" data-title="鲨海 47 Meters Down"
-										data-release="2016" data-rate="6.2" data-star="30"
-										data-trailer="https://movie.douban.com/subject/26845362/trailer"
-										data-ticket="https://movie.douban.com/ticket/redirect/?url=https%3A%2F%2Fm.maoyan.com%2Fcinema%2Fmovie%2F930966%3F_v_%3Dyes%26merCode%3D1000011"
-										data-duration="89分钟" data-region="英国" data-director="约翰内斯·罗伯茨"
-										data-actors="曼迪·摩尔 / 克莱尔·霍尔特 / 克里斯·J.约翰逊" data-intro=""
-										data-enough="true" data-rater="10303">
-										<ul class="">
-											<li class="poster"><a
-												onclick="moreurl(this, {from:'mv_a_pst'})"
-												href="https://movie.douban.com/subject/26845362/?from=showing">
-													<img
-													src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2504892832.webp"
-													alt="鲨海" rel="nofollow" class="">
-											</a></li>
-											<li class="title"><a
-												onclick="moreurl(this, {from:'mv_a_tl'})"
-												href="https://movie.douban.com/subject/26845362/?from=showing"
-												class="">鲨海</a></li>
-											<li class="rating"><span class="rating-star allstar30"></span><span
-												class="subject-rate">6.2</span></li>
-											<li class="ticket_btn"><span><a
-													onclick="moreurl(this, {from:'mv_b_tc'})"
-													href="https://movie.douban.com/ticket/redirect/?url=https%3A%2F%2Fm.maoyan.com%2Fcinema%2Fmovie%2F930966%3F_v_%3Dyes%26merCode%3D1000011"
-													target="_blank">选座购票</a></span></li>
-										</ul>
-
-
-									</li>
-									<li class="ui-slide-item" data-title="勇往直前 Only the Brave"
-										data-release="2017" data-rate="8.4" data-star="45"
-										data-trailer="https://movie.douban.com/subject/26718828/trailer"
-										data-ticket="https://movie.douban.com/ticket/redirect/?url=https%3A%2F%2Fm.maoyan.com%2Fcinema%2Fmovie%2F368228%3F_v_%3Dyes%26merCode%3D1000011"
-										data-duration="127分钟(中国大陆)" data-region="美国"
-										data-director="约瑟夫·科辛斯基"
-										data-actors="乔什·布洛林 / 迈尔斯·特勒 / 杰夫·布里吉斯" data-intro=""
-										data-enough="true" data-rater="7033">
-										<ul class="">
-											<li class="poster"><a
-												onclick="moreurl(this, {from:'mv_a_pst'})"
-												href="https://movie.douban.com/subject/26718828/?from=showing">
-													<img
-													src="https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2506348908.webp"
-													alt="勇往直前" rel="nofollow" class="">
-											</a></li>
-											<li class="title"><a
-												onclick="moreurl(this, {from:'mv_a_tl'})"
-												href="https://movie.douban.com/subject/26718828/?from=showing"
-												class="">勇往直前</a></li>
-											<li class="rating"><span class="rating-star allstar45"></span><span
-												class="subject-rate">8.4</span></li>
-											<li class="ticket_btn"><span><a
-													onclick="moreurl(this, {from:'mv_b_tc'})"
-													href="https://movie.douban.com/ticket/redirect/?url=https%3A%2F%2Fm.maoyan.com%2Fcinema%2Fmovie%2F368228%3F_v_%3Dyes%26merCode%3D1000011"
-													target="_blank">选座购票</a></span></li>
-										</ul>
-
-
-									</li>
-									<li class="ui-slide-item" data-title="刺杀盖世太保 HHhH"
-										data-release="2017" data-rate="6.7" data-star="35"
-										data-trailer="https://movie.douban.com/subject/26383923/trailer"
-										data-ticket="https://movie.douban.com/ticket/redirect/?url=https%3A%2F%2Fm.maoyan.com%2Fcinema%2Fmovie%2F342276%3F_v_%3Dyes%26merCode%3D1000011"
-										data-duration="100分钟(中国大陆)" data-region="法国"
-										data-director="塞德里克·吉门内兹"
-										data-actors="裴淳华 / 米娅·华希科沃斯卡 / 杰森·克拉克" data-intro=""
-										data-enough="true" data-rater="3724">
-										<ul class="">
-											<li class="poster"><a
-												onclick="moreurl(this, {from:'mv_a_pst'})"
-												href="https://movie.douban.com/subject/26383923/?from=showing">
-													<img
-													src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2505437151.webp"
-													alt="刺杀盖世太保" rel="nofollow" class="">
-											</a></li>
-											<li class="title"><a
-												onclick="moreurl(this, {from:'mv_a_tl'})"
-												href="https://movie.douban.com/subject/26383923/?from=showing"
-												class="">刺杀盖世太保...</a></li>
-											<li class="rating"><span class="rating-star allstar35"></span><span
-												class="subject-rate">6.7</span></li>
-											<li class="ticket_btn"><span><a
-													onclick="moreurl(this, {from:'mv_b_tc'})"
-													href="https://movie.douban.com/ticket/redirect/?url=https%3A%2F%2Fm.maoyan.com%2Fcinema%2Fmovie%2F342276%3F_v_%3Dyes%26merCode%3D1000011"
-													target="_blank">选座购票</a></span></li>
-										</ul>
-
-
-									</li>
-									<li class="ui-slide-item" data-title="疯狂特警队 Raid dingue"
-										data-release="2016" data-rate="6.2" data-star="30"
-										data-trailer="https://movie.douban.com/subject/26811367/trailer"
-										data-ticket="https://movie.douban.com/ticket/redirect/?url=https%3A%2F%2Fm.maoyan.com%2Fcinema%2Fmovie%2F1140198%3F_v_%3Dyes%26merCode%3D1000011"
-										data-duration="105分钟" data-region="法国" data-director="丹尼·伯恩"
-										data-actors="丹尼·伯恩 / 爱丽丝·波尔 / 米歇尔·布朗" data-intro=""
-										data-enough="true" data-rater="717">
-										<ul class="">
-											<li class="poster"><a
-												onclick="moreurl(this, {from:'mv_a_pst'})"
-												href="https://movie.douban.com/subject/26811367/?from=showing">
-													<img
-													src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2505519671.webp"
-													alt="疯狂特警队" rel="nofollow" class="">
-											</a></li>
-											<li class="title"><a
-												onclick="moreurl(this, {from:'mv_a_tl'})"
-												href="https://movie.douban.com/subject/26811367/?from=showing"
-												class="">疯狂特警队</a></li>
-											<li class="rating"><span class="rating-star allstar30"></span><span
-												class="subject-rate">6.2</span></li>
-											<li class="ticket_btn"><span><a
-													onclick="moreurl(this, {from:'mv_b_tc'})"
-													href="https://movie.douban.com/ticket/redirect/?url=https%3A%2F%2Fm.maoyan.com%2Fcinema%2Fmovie%2F1140198%3F_v_%3Dyes%26merCode%3D1000011"
-													target="_blank">选座购票</a></span></li>
-										</ul>
-
-
-									</li>
-									<li class="ui-slide-item s" data-dstat-areaid="70_4"
-										data-dstat-mode="click,expose"
-										data-dstat-watch=".ui-slide-content"
-										data-dstat-viewport=".screening-bd"
-										data-title="东方快车谋杀案 Murder on the Orient Express"
-										data-release="2017" data-rate="7.0" data-star="35"
-										data-trailer="https://movie.douban.com/subject/25790761/trailer"
-										data-ticket="https://movie.douban.com/ticket/redirect/?url=https%3A%2F%2Fm.maoyan.com%2Fcinema%2Fmovie%2F344422%3F_v_%3Dyes%26merCode%3D1000011"
-										data-duration="114分钟" data-region="美国" data-director="肯尼思·布拉纳"
-										data-actors="肯尼思·布拉纳 / 佩内洛普·克鲁兹 / 威廉·达福" data-intro=""
-										data-enough="true" data-rater="94934">
-										<ul class="">
-											<li class="poster"><a
-												onclick="moreurl(this, {from:'mv_a_pst'})"
-												href="https://movie.douban.com/subject/25790761/?from=showing">
-													<img
-													src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2502165084.webp"
-													alt="东方快车谋杀案" rel="nofollow" class="">
-											</a></li>
-											<li class="title"><a
-												onclick="moreurl(this, {from:'mv_a_tl'})"
-												href="https://movie.douban.com/subject/25790761/?from=showing"
-												class="">东方快车谋杀...</a></li>
-											<li class="rating"><span class="rating-star allstar35"></span><span
-												class="subject-rate">7.0</span></li>
-											<li class="ticket_btn"><span><a
-													onclick="moreurl(this, {from:'mv_b_tc'})"
-													href="https://movie.douban.com/ticket/redirect/?url=https%3A%2F%2Fm.maoyan.com%2Fcinema%2Fmovie%2F344422%3F_v_%3Dyes%26merCode%3D1000011"
-													target="_blank">选座购票</a></span></li>
-										</ul>
-
-
-									</li>
-									<li class="ui-slide-item" data-title="正义联盟 Justice League"
-										data-release="2017" data-rate="6.7" data-star="35"
-										data-trailer="https://movie.douban.com/subject/2158490/trailer"
-										data-ticket="https://movie.douban.com/ticket/redirect/?url=https%3A%2F%2Fm.maoyan.com%2Fcinema%2Fmovie%2F341195%3F_v_%3Dyes%26merCode%3D1000011"
-										data-duration="120分钟" data-region="美国" data-director="扎克·施奈德"
-										data-actors="本·阿弗莱克 / 亨利·卡维尔 / 盖尔·加朵" data-intro=""
-										data-enough="true" data-rater="104575">
-										<ul class="">
-											<li class="poster"><a
-												onclick="moreurl(this, {from:'mv_a_pst'})"
-												href="https://movie.douban.com/subject/2158490/?from=showing">
-													<img
-													src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2504027804.webp"
-													alt="正义联盟" rel="nofollow" class="">
-											</a></li>
-											<li class="title"><a
-												onclick="moreurl(this, {from:'mv_a_tl'})"
-												href="https://movie.douban.com/subject/2158490/?from=showing"
-												class="">正义联盟</a></li>
-											<li class="rating"><span class="rating-star allstar35"></span><span
-												class="subject-rate">6.7</span></li>
-											<li class="ticket_btn"><span><a
-													onclick="moreurl(this, {from:'mv_b_tc'})"
-													href="https://movie.douban.com/ticket/redirect/?url=https%3A%2F%2Fm.maoyan.com%2Fcinema%2Fmovie%2F341195%3F_v_%3Dyes%26merCode%3D1000011"
-													target="_blank">选座购票</a></span></li>
-										</ul>
-
-
-									</li>
-									<li class="ui-slide-item" data-title="双面劫匪 Heist"
-										data-release="2015" data-rate="6.3" data-star="35"
-										data-trailer="https://movie.douban.com/subject/25889465/trailer"
-										data-ticket="https://movie.douban.com/ticket/redirect/?url=https%3A%2F%2Fm.maoyan.com%2Fcinema%2Fmovie%2F336946%3F_v_%3Dyes%26merCode%3D1000011"
-										data-duration="92分钟(中国大陆)" data-region="美国"
-										data-director="斯科特·曼"
-										data-actors="杰弗里·迪恩·摩根 / 罗伯特·德尼罗 / 凯特·波茨沃斯" data-intro=""
-										data-enough="true" data-rater="3170">
-										<ul class="">
-											<li class="poster"><a
-												onclick="moreurl(this, {from:'mv_a_pst'})"
 												href="https://movie.douban.com/subject/25889465/?from=showing">
 													<img
-													src="${basePath }/p2507024038.webp"
-													alt="双面劫匪" rel="nofollow" class="">
+													src="/img/${film.film_pic }"
+													alt="${film.film_name }" rel="nofollow" class="">
 											</a></li>
 											<li class="title"><a
 												onclick="moreurl(this, {from:'mv_a_tl'})"
 												href="https://movie.douban.com/subject/25889465/?from=showing"
-												class="">双面劫匪<strong style="color: #e09015;">
-														7.9</strong></a></li>
-											<li><p title="患上了老年痴呆症的她，依旧用心地学习诗歌……"
+												class="">${film.film_name }<strong style="color: #e09015;">
+														${film.douban_rating }</strong></a></li>
+											<li><p title="${film.short_comment }"
 													style="color: #999;font-size: 12px;margin: 5px 0 0;">
-													患上了老年痴呆症的她，依旧用心地学习诗歌……</p></li>
-											<!-- <li class="rating"><span class="rating-star allstar35"></span><span
-												class="subject-rate">6.3</span></li>
-											<li class="ticket_btn"><span><a
-													onclick="moreurl(this, {from:'mv_b_tc'})"
-													href="https://movie.douban.com/ticket/redirect/?url=https%3A%2F%2Fm.maoyan.com%2Fcinema%2Fmovie%2F336946%3F_v_%3Dyes%26merCode%3D1000011"
-													target="_blank">选座购票</a></span></li> -->
-										</ul>
-
-
-									</li>
-									<li class="ui-slide-item" data-title="笔仙咒怨" data-release="2017"
-										data-rate="" data-star="00"
-										data-trailer="https://movie.douban.com/subject/27054612/trailer"
-										data-ticket="https://movie.douban.com/ticket/redirect/?url=https%3A%2F%2Fm.maoyan.com%2Fcinema%2Fmovie%2F1208145%3F_v_%3Dyes%26merCode%3D1000011"
-										data-duration="96分钟" data-region="中国大陆" data-director="邓安东"
-										data-actors="罗翔 / 李佳颖 / 江兰萱" data-intro="" data-enough="false"
-										data-rater="279">
-										<ul class="">
-											<li class="poster"><a
-												onclick="moreurl(this, {from:'mv_a_pst'})"
-												href="https://movie.douban.com/subject/27054612/?from=showing">
-													<img
-													src="https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2506139427.webp"
-													alt="笔仙咒怨" rel="nofollow" class="">
-											</a></li>
-											<li class="title"><a
-												onclick="moreurl(this, {from:'mv_a_tl'})"
-												href="https://movie.douban.com/subject/27054612/?from=showing"
-												class="">笔仙咒怨</a></li>
-											<li><p title="患上了老年痴呆症的她，依旧用心地学习诗歌……"
-													style="color: #999;font-size: 12px;margin: 5px 0 0;">
-													患上了老年痴呆症的她，依旧用心地学习诗歌……</p></li>
-										</ul>
-
-
-									</li>
-									<li class="ui-slide-item"
-										data-title="夺金四贱客 Vier gegen die Bank" data-release="2016"
-										data-rate="6.8" data-star="35"
-										data-trailer="https://movie.douban.com/subject/26678784/trailer"
-										data-ticket="https://movie.douban.com/ticket/redirect/?url=https%3A%2F%2Fm.maoyan.com%2Fcinema%2Fmovie%2F1211239%3F_v_%3Dyes%26merCode%3D1000011"
-										data-duration="96分钟" data-region="德国" data-director="沃尔夫冈·彼德森"
-										data-actors="蒂尔·施威格 / 马提亚斯·施维赫夫 / 扬·约瑟夫·利费斯" data-intro=""
-										data-enough="true" data-rater="2613">
-										<ul class="">
-											<li class="poster"><a
-												onclick="moreurl(this, {from:'mv_a_pst'})"
-												href="https://movie.douban.com/subject/26678784/?from=showing">
-													<img
-													src="https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2506043017.webp"
-													alt="夺金四贱客" rel="nofollow" class="">
-											</a></li>
-											<li class="title"><a
-												onclick="moreurl(this, {from:'mv_a_tl'})"
-												href="https://movie.douban.com/subject/26678784/?from=showing"
-												class="">夺金四贱客</a></li>
-											<li><p title="患上了老年痴呆症的她，依旧用心地学习诗歌……"
-													style="color: #999;font-size: 12px;margin: 5px 0 0;">
-													患上了老年痴呆症的她，依旧用心地学习诗歌……</p></li>
-										</ul>
-
-
-									</li>
-									<li class="ui-slide-item s" data-dstat-areaid="70_5"
-										data-dstat-mode="click,expose"
-										data-dstat-watch=".ui-slide-content"
-										data-dstat-viewport=".screening-bd" data-title="老兽"
-										data-release="2017" data-rate="7.0" data-star="35"
-										data-trailer="https://movie.douban.com/subject/26957500/trailer"
-										data-ticket="https://movie.douban.com/ticket/redirect/?url=https%3A%2F%2Fm.maoyan.com%2Fcinema%2Fmovie%2F1207099%3F_v_%3Dyes%26merCode%3D1000011"
-										data-duration="110分钟" data-region="中国大陆" data-director="周子陽"
-										data-actors="涂们 / 王超北 / 王子子" data-intro="" data-enough="true"
-										data-rater="3837">
-										<ul class="">
-											<li class="poster"><a
-												onclick="moreurl(this, {from:'mv_a_pst'})"
-												href="https://movie.douban.com/subject/26957500/?from=showing">
-													<img
-													src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2507370070.webp"
-													alt="老兽" rel="nofollow" class="">
-											</a></li>
-											<li class="title"><a
-												onclick="moreurl(this, {from:'mv_a_tl'})"
-												href="https://movie.douban.com/subject/26957500/?from=showing"
-												class="">老兽</a></li>
-											<li><p title="患上了老年痴呆症的她，依旧用心地学习诗歌……"
-													style="color: #999;font-size: 12px;margin: 5px 0 0;">
-													患上了老年痴呆症的她，依旧用心地学习诗歌……</p></li>
+													${film.short_comment }</p></li>
+						
 										</ul>
 									</li>
-									<li class="ui-slide-item s" data-dstat-areaid="70_5"
-										data-dstat-mode="click,expose"
-										data-dstat-watch=".ui-slide-content"
-										data-dstat-viewport=".screening-bd" data-title="老兽"
-										data-release="2017" data-rate="7.0" data-star="35"
-										data-trailer="https://movie.douban.com/subject/26957500/trailer"
-										data-ticket="https://movie.douban.com/ticket/redirect/?url=https%3A%2F%2Fm.maoyan.com%2Fcinema%2Fmovie%2F1207099%3F_v_%3Dyes%26merCode%3D1000011"
-										data-duration="110分钟" data-region="中国大陆" data-director="周子陽"
-										data-actors="涂们 / 王超北 / 王子子" data-intro="" data-enough="true"
-										data-rater="3837">
-										<ul class="">
-											<li class="poster"><a
-												onclick="moreurl(this, {from:'mv_a_pst'})"
-												href="https://movie.douban.com/subject/26957500/?from=showing">
-													<img
-													src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2507370070.webp"
-													alt="老兽" rel="nofollow" class="">
-											</a></li>
-											<li class="title"><a
-												onclick="moreurl(this, {from:'mv_a_tl'})"
-												href="https://movie.douban.com/subject/26957500/?from=showing"
-												class="">老兽</a></li>
-											<li><p title="患上了老年痴呆症的她，依旧用心地学习诗歌……"
-													style="color: #999;font-size: 12px;margin: 5px 0 0;">
-													患上了老年痴呆症的她，依旧用心地学习诗歌……</p></li>
-										</ul>
-									</li>
-									<li class="ui-slide-item"></li>
-									<li class="ui-slide-item"></li>
-									<li class="ui-slide-item"></li>
-									<li class="ui-slide-item"></li>
-									<li class="ui-slide-item s" data-dstat-areaid="70_1"
-										data-dstat-mode="click,expose"
-										data-dstat-watch=".ui-slide-content"
-										data-dstat-viewport=".screening-bd" data-title="芳华"
-										data-release="2017" data-rate="7.9" data-star="40"
-										data-trailer="https://movie.douban.com/subject/26862829/trailer"
-										data-ticket="https://movie.douban.com/ticket/redirect/?url=https%3A%2F%2Fm.maoyan.com%2Fcinema%2Fmovie%2F1170264%3F_v_%3Dyes%26merCode%3D1000011"
-										data-duration="136分钟" data-region="中国大陆" data-director="冯小刚"
-										data-actors="黄轩 / 苗苗 / 钟楚曦" data-intro="" data-enough="true"
-										data-rater="133455">
-										<ul class="">
-											<li class="poster"><a
-												onclick="moreurl(this, {from:'mv_a_pst'})"
-												href="https://movie.douban.com/subject/26862829/?from=showing">
-													<img
-													src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2507361925.webp"
-													alt="芳华" rel="nofollow" class="">
-											</a></li>
-											<li class="title"><a
-												onclick="moreurl(this, {from:'mv_a_tl'})"
-												href="https://movie.douban.com/subject/26862829/?from=showing"
-												class="">芳华</a></li>
-											<li class="rating"><span class="rating-star allstar40"></span><span
-												class="subject-rate">7.9</span></li>
-											<li class="ticket_btn"><span><a
-													onclick="moreurl(this, {from:'mv_b_tc'})"
-													href="https://movie.douban.com/ticket/redirect/?url=https%3A%2F%2Fm.maoyan.com%2Fcinema%2Fmovie%2F1170264%3F_v_%3Dyes%26merCode%3D1000011"
-													target="_blank">选座购票</a></span></li>
-										</ul>
-
-
-									</li>
-									<li class="ui-slide-item" data-title="惊魂七夜" data-release="2016"
-										data-rate="" data-star="00"
-										data-trailer="https://movie.douban.com/subject/26923563/trailer"
-										data-ticket="https://movie.douban.com/ticket/redirect/?url=https%3A%2F%2Fm.maoyan.com%2Fcinema%2Fmovie%2F1212376%3F_v_%3Dyes%26merCode%3D1000011"
-										data-duration="90分钟" data-region="中国大陆" data-director="喻彬"
-										data-actors="陈美行 / 曾帅 / 濡雪" data-intro="" data-enough="false"
-										data-rater="14">
-										<ul class="">
-											<li class="poster"><a
-												onclick="moreurl(this, {from:'mv_a_pst'})"
-												href="https://movie.douban.com/subject/26923563/?from=showing">
-													<img
-													src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2508243232.webp"
-													alt="惊魂七夜" rel="nofollow" class="">
-											</a></li>
-											<li class="title"><a
-												onclick="moreurl(this, {from:'mv_a_tl'})"
-												href="https://movie.douban.com/subject/26923563/?from=showing"
-												class="">惊魂七夜</a> <span class="new-show"></span></li>
-											<li class="rating"><span class="text-tip">暂无评分</span></li>
-											<li class="ticket_btn"><span><a
-													onclick="moreurl(this, {from:'mv_b_tc'})"
-													href="https://movie.douban.com/ticket/redirect/?url=https%3A%2F%2Fm.maoyan.com%2Fcinema%2Fmovie%2F1212376%3F_v_%3Dyes%26merCode%3D1000011"
-													target="_blank">选座购票</a></span></li>
-										</ul>
-
-
-									</li>
-									<li class="ui-slide-item" data-title="奇门遁甲" data-release="2017"
-										data-rate="4.8" data-star="25"
-										data-trailer="https://movie.douban.com/subject/26661191/trailer"
-										data-ticket="https://movie.douban.com/ticket/redirect/?url=https%3A%2F%2Fm.maoyan.com%2Fcinema%2Fmovie%2F344183%3F_v_%3Dyes%26merCode%3D1000011"
-										data-duration="113分钟" data-region="中国大陆" data-director="袁和平"
-										data-actors="董成鹏 / 倪妮 / 李治廷" data-intro="" data-enough="true"
-										data-rater="17444">
-										<ul class="">
-											<li class="poster"><a
-												onclick="moreurl(this, {from:'mv_a_pst'})"
-												href="https://movie.douban.com/subject/26661191/?from=showing">
-													<img
-													src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2507566212.webp"
-													alt="奇门遁甲" rel="nofollow" class="">
-											</a></li>
-											<li class="title"><a
-												onclick="moreurl(this, {from:'mv_a_tl'})"
-												href="https://movie.douban.com/subject/26661191/?from=showing"
-												class="">奇门遁甲</a></li>
-											<li class="rating"><span class="rating-star allstar25"></span><span
-												class="subject-rate">4.8</span></li>
-											<li class="ticket_btn"><span><a
-													onclick="moreurl(this, {from:'mv_b_tc'})"
-													href="https://movie.douban.com/ticket/redirect/?url=https%3A%2F%2Fm.maoyan.com%2Fcinema%2Fmovie%2F344183%3F_v_%3Dyes%26merCode%3D1000011"
-													target="_blank">选座购票</a></span></li>
-										</ul>
-
-
-									</li>
-									<li class="ui-slide-item" data-title="寻梦环游记 Coco"
-										data-release="2017" data-rate="9.1" data-star="45"
-										data-trailer="https://movie.douban.com/subject/20495023/trailer"
-										data-ticket="https://movie.douban.com/ticket/redirect/?url=https%3A%2F%2Fm.maoyan.com%2Fcinema%2Fmovie%2F342068%3F_v_%3Dyes%26merCode%3D1000011"
-										data-duration="105分钟" data-region="美国" data-director="李·昂克里奇"
-										data-actors="安东尼·冈萨雷斯 / 盖尔·加西亚·贝纳尔 / 本杰明·布拉特" data-intro=""
-										data-enough="true" data-rater="286601">
-										<ul class="">
-											<li class="poster"><a
-												onclick="moreurl(this, {from:'mv_a_pst'})"
-												href="https://movie.douban.com/subject/20495023/?from=showing">
-													<img
-													src="https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2503997609.webp"
-													alt="寻梦环游记" rel="nofollow" class="">
-											</a></li>
-											<li class="title"><a
-												onclick="moreurl(this, {from:'mv_a_tl'})"
-												href="https://movie.douban.com/subject/20495023/?from=showing"
-												class="">寻梦环游记</a></li>
-											<li class="rating"><span class="rating-star allstar45"></span><span
-												class="subject-rate">9.1</span></li>
-											<li class="ticket_btn"><span><a
-													onclick="moreurl(this, {from:'mv_b_tc'})"
-													href="https://movie.douban.com/ticket/redirect/?url=https%3A%2F%2Fm.maoyan.com%2Fcinema%2Fmovie%2F342068%3F_v_%3Dyes%26merCode%3D1000011"
-													target="_blank">选座购票</a></span></li>
-										</ul>
-
-
-									</li>
-									<li class="ui-slide-item" data-title="帕丁顿熊2 Paddington 2"
-										data-release="2017" data-rate="8.3" data-star="45"
-										data-trailer="https://movie.douban.com/subject/26340419/trailer"
-										data-ticket="https://movie.douban.com/ticket/redirect/?url=https%3A%2F%2Fm.maoyan.com%2Fcinema%2Fmovie%2F343905%3F_v_%3Dyes%26merCode%3D1000011"
-										data-duration="103分钟" data-region="英国" data-director="保罗·金"
-										data-actors="本·卫肖 / 休·格兰特 / 休·博内威利" data-intro=""
-										data-enough="true" data-rater="43180">
-										<ul class="">
-											<li class="poster"><a
-												onclick="moreurl(this, {from:'mv_a_pst'})"
-												href="https://movie.douban.com/subject/26340419/?from=showing">
-													<img
-													src="https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2506466229.webp"
-													alt="帕丁顿熊2" rel="nofollow" class="">
-											</a></li>
-											<li class="title"><a
-												onclick="moreurl(this, {from:'mv_a_tl'})"
-												href="https://movie.douban.com/subject/26340419/?from=showing"
-												class="">帕丁顿熊2</a></li>
-											<li class="rating"><span class="rating-star allstar45"></span><span
-												class="subject-rate">8.3</span></li>
-											<li class="ticket_btn"><span><a
-													onclick="moreurl(this, {from:'mv_b_tc'})"
-													href="https://movie.douban.com/ticket/redirect/?url=https%3A%2F%2Fm.maoyan.com%2Fcinema%2Fmovie%2F343905%3F_v_%3Dyes%26merCode%3D1000011"
-													target="_blank">选座购票</a></span></li>
-										</ul>
-
-
-									</li>
+								</c:forEach>
+					
 								</ul>
 							</div>
 							<div class="tab-pane" id="panel-413468">
@@ -3524,6 +2818,7 @@ img {
 	<script src="${basePath }/static/js/jquery.min.js"></script>
 	<script src="${basePath }/static/js/bootstrap.min.js"></script>
 	<script src="${basePath }/static/js/scripts.js"></script>
+	
 </body>
 
 </html>

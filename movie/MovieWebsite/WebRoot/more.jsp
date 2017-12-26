@@ -76,146 +76,6 @@
 
 
 
-<div id="db-global-nav" class="global-nav">
-  <div class="bd">
-    
-<div class="top-nav-info">
-  <ul>
-    <li>
-    <a id="top-nav-doumail-link" href="https://www.douban.com/doumail/">豆邮</a>
-    </li>
-    <li class="nav-user-account">
-      <a target="_blank" href="https://www.douban.com/accounts/" class="bn-more">
-        <span>qiu~jing的帐号</span><span class="arrow"></span>
-      </a>
-      <div class="more-items">
-        <table cellpadding="0" cellspacing="0">
-          <tbody>
-            <tr>
-              <td>
-                <a href="https://www.douban.com/mine/">个人主页</a>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <a target="_blank" href="https://www.douban.com/mine/orders/">我的订单</a>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <a target="_blank" href="https://www.douban.com/mine/wallet/">我的钱包</a>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <a target="_blank" href="https://www.douban.com/accounts/">帐号管理</a>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <a href="https://www.douban.com/accounts/logout?source=movie&ck=1AwL">退出</a>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </li>
-  </ul>
-</div>
-
-  <div class="top-nav-reminder">
-    <a href="https://www.douban.com/notification/" class="lnk-remind">提醒</a>
-    <div id="top-nav-notimenu" class="more-items">
-      <div class="bd">
-        <p>加载中...</p>
-      </div>
-    </div>
-  </div>
-
-    
-<div class="top-nav-doubanapp">
-  <a href="https://www.douban.com/doubanapp/app?channel=top-nav" class="lnk-doubanapp">下载豆瓣客户端</a>
-  <div id="top-nav-appintro" class="more-items">
-    <p class="appintro-title">豆瓣</p>
-    <p class="slogan">我们的精神角落</p>
-    <p class="qrcode">扫码直接下载</p>
-    <div class="download">
-      <a href="https://www.douban.com/doubanapp/redirect?channel=top-nav&direct_dl=1&download=iOS">iPhone</a>
-      <span>·</span>
-      <a href="https://www.douban.com/doubanapp/redirect?channel=top-nav&direct_dl=1&download=Android" class="download-android">Android</a>
-    </div>
-    <div id="doubanapp-tip">
-      <a href="https://www.douban.com/doubanapp/app?channel=qipao" class="tip-link">豆瓣 5.0 全新发布</a>
-      <a href="javascript: void 0;" class="tip-close">×</a>
-    </div>
-  </div>
-</div>
-
-    
-
-
-<div class="global-nav-items">
-  <ul>
-    <li class="">
-      <a href="https://www.douban.com" target="_blank" data-moreurl-dict="{&quot;from&quot;:&quot;top-nav-click-main&quot;,&quot;uid&quot;:&quot;132201185&quot;}">豆瓣</a>
-    </li>
-    <li class="">
-      <a href="https://book.douban.com" target="_blank" data-moreurl-dict="{&quot;from&quot;:&quot;top-nav-click-book&quot;,&quot;uid&quot;:&quot;132201185&quot;}">读书</a>
-    </li>
-    <li class="on">
-      <a href="https://movie.douban.com"  data-moreurl-dict="{&quot;from&quot;:&quot;top-nav-click-movie&quot;,&quot;uid&quot;:&quot;132201185&quot;}">电影</a>
-    </li>
-    <li class="">
-      <a href="https://music.douban.com" target="_blank" data-moreurl-dict="{&quot;from&quot;:&quot;top-nav-click-music&quot;,&quot;uid&quot;:&quot;132201185&quot;}">音乐</a>
-    </li>
-    <li class="">
-      <a href="https://www.douban.com/location" target="_blank" data-moreurl-dict="{&quot;from&quot;:&quot;top-nav-click-location&quot;,&quot;uid&quot;:&quot;132201185&quot;}">同城</a>
-    </li>
-    <li class="">
-      <a href="https://www.douban.com/group" target="_blank" data-moreurl-dict="{&quot;from&quot;:&quot;top-nav-click-group&quot;,&quot;uid&quot;:&quot;132201185&quot;}">小组</a>
-    </li>
-    <li class="">
-      <a href="https://read.douban.com&#47;?dcs=top-nav&amp;dcm=douban" target="_blank" data-moreurl-dict="{&quot;from&quot;:&quot;top-nav-click-read&quot;,&quot;uid&quot;:&quot;132201185&quot;}">阅读</a>
-    </li>
-    <li class="">
-      <a href="https://douban.fm&#47;?from_=shire_top_nav" target="_blank" data-moreurl-dict="{&quot;from&quot;:&quot;top-nav-click-fm&quot;,&quot;uid&quot;:&quot;132201185&quot;}">FM</a>
-    </li>
-    <li class="">
-      <a href="https://time.douban.com&#47;?dt_time_source=douban-web_top_nav" target="_blank" data-moreurl-dict="{&quot;from&quot;:&quot;top-nav-click-time&quot;,&quot;uid&quot;:&quot;132201185&quot;}">时间</a>
-    </li>
-    <li class="">
-      <a href="https://market.douban.com&#47;?utm_campaign=douban_top_nav&amp;utm_source=douban&amp;utm_medium=pc_web" target="_blank" data-moreurl-dict="{&quot;from&quot;:&quot;top-nav-click-market&quot;,&quot;uid&quot;:&quot;132201185&quot;}">市集</a>
-    </li>
-    <li>
-      <a href="#more" class="bn-more"><span>更多</span></a>
-      <div class="more-items">
-        <table cellpadding="0" cellspacing="0">
-          <tbody>
-            <tr>
-              <td>
-                <a href="https://ypy.douban.com" target="_blank" data-moreurl-dict="{&quot;from&quot;:&quot;top-nav-click-ypy&quot;,&quot;uid&quot;:&quot;132201185&quot;}">豆瓣摄影</a>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </li>
-  </ul>
-</div>
-
-  </div>
-</div>
-
-
-
-
-  
-
-
-
-    
-
-
 
     <link href="//img3.doubanio.com/dae/accounts/resources/bf22ae5/movie/bundle.css" rel="stylesheet" type="text/css">
 
@@ -223,64 +83,59 @@
 
 
 <div id="db-nav-movie" class="nav">
-  <div class="nav-wrap">
-  <div class="nav-primary">
-    <div class="nav-logo">
-      <a href="https:&#47;&#47;movie.douban.com">豆瓣电影</a>
-    </div>
-    <div class="nav-search">
-      <form action="https:&#47;&#47;movie.douban.com/subject_search" method="get">
-        <fieldset>
-          <legend>搜索：</legend>
-          <label for="inp-query">
-          </label>
-          <div class="inp"><input id="inp-query" name="search_text" size="22" maxlength="60" placeholder="搜索电影、电视剧、综艺、影人" value=""></div>
-          <div class="inp-btn"><input type="submit" value="搜索"></div>
-          <input type="hidden" name="cat" value="1002" />
-        </fieldset>
-      </form>
-    </div>
-  </div>
-  </div>
-  <div class="nav-secondary">
-    
+		<div class="nav-wrap">
+			<div class="nav-primary">
+				<div style="float: left; height: 56px; width: 145px;margin: 0 13px 0 0;">
+					<!-- <a href="https:&#47;&#47;movie.douban.com">电影网</a> -->
+					<a style="display: block; width: 100%; height: 100%; overflow: hidden;font-size:40px;font-style: italic; text-align: center;" href="">电影网</a>
+				</div>
+				<div class="nav-search">
+					<form action="https:&#47;&#47;movie.douban.com/subject_search"
+						method="get">
+						<fieldset>
+							<legend>搜索：</legend>
+							<label for="inp-query"> </label>
+							<div class="inp">
+								<input id="inp-query" name="search_text" size="22"
+									maxlength="60" placeholder="电影、电视剧、综艺、影人" value="">
+							</div>
 
-<div class="nav-items">
-  <ul>
-    <li    ><a href="https://movie.douban.com/mine"
-     >我看</a>
-    </li>
-    <li    ><a href="https://movie.douban.com/cinema/nowplaying/"
-     >影讯&购票</a>
-    </li>
-    <li    ><a href="https://movie.douban.com/explore"
-     >选电影</a>
-    </li>
-    <li    ><a href="https://movie.douban.com/tv/"
-     >电视剧</a>
-    </li>
-    <li    ><a href="https://movie.douban.com/chart"
-     >排行榜</a>
-    </li>
-    <li    ><a href="https://movie.douban.com/tag/"
-     >分类</a>
-    </li>
-    <li    ><a href="https://movie.douban.com/review/best/"
-     >影评</a>
-    </li>
-    <li    ><a href="https://movie.douban.com/annual2016/?source=navigation"
-     >2016年度榜单</a>
-    </li>
-    <li    ><a href="https://movie.douban.com/standbyme/2017?source=navigation"
-     >2017观影报告</a>
-    </li>
-  </ul>
-</div>
+							<div class="inp-btn">
+								<input
+									style="background:url('${basePath}/static/img/test.png'); "
+									type="submit" value="搜索">搜索
+							</div>
+							<input type="hidden" name="cat" value="1002" />
+						</fieldset>
+					</form>
+					<!-- <form class="navbar-form navbar-left" role="search" style=" border: none;padding: 0;margin: 0;position: static;">
+						<div class="form-group" style="width: 350px;">
+							<input  type="text" placeholder="电影、电视剧、综艺、影人"
+								class="form-control" style="background: #fff;width: 96%; margin: 0;text-align: left;height: 30px;padding-left: 10px;height: 28px\9;line-height: 28px\9;outline: none;">
+						</div>
+						<button type="submit" class="btn btn-default">搜索</button>
+					</form> -->
+				</div>
+			</div>
+		</div>
+		<div class="nav-secondary">
 
-  </div>
-    <a href="https://movie.douban.com/standbyme/2017?source=patch" class="standbyme"></a>
-</div>
 
+			<div class="nav-items">
+				<ul>
+					<li><a href="https://movie.douban.com/mine">豆瓣电影排行榜</a></li>
+					<li><a href="https://movie.douban.com/explore">选电影</a></li>
+					<li><a href="https://movie.douban.com/tv/">电视剧</a></li>
+					<li><a href="https://movie.douban.com/tag/">分类</a></li>
+					<li><a href="https://movie.douban.com/review/best/">影评</a></li>
+					<li><a
+						href="https://movie.douban.com/standbyme/2017?source=navigation">2017评分最高电影片单</a>
+					</li>
+				</ul>
+			</div>
+
+		</div>
+	</div>
 
 
    

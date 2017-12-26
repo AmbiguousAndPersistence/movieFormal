@@ -9,16 +9,17 @@
 			film_id,
 			film_name,
 			film_pic,
-			film_years,
+			film_date,
 			director,
 			actors,
 			short_comment,
 			synopsis,
 			douban_rating,
 			bt_link,
-			sort
+			sort,
+			place
 		from
-			tb_film    
+			tb_film  ORDER BY film_id DESC  
          ]]>
   	</select>
   	<select id="queryFilmOrderByDoubanDesc" resultType="map">
@@ -27,14 +28,15 @@
 			film_id,
 			film_name,
 			film_pic,
-			film_years,
+			film_date,
 			director,
 			actors,
 			short_comment,
 			synopsis,
 			douban_rating,
 			bt_link,
-			sort
+			sort,
+			place
 		from
 			tb_film  order by douban_rating desc  
          ]]>
@@ -45,14 +47,15 @@
           	film_id,
 			film_name,
 			film_pic,
-			film_years,
+			film_date,
 			director,
 			actors,
 			short_comment,
 			synopsis,
 			douban_rating,
 			bt_link,
-			sort
+			sort,
+			place
           from   tb_film   where film_id=#{value}   
          ]]>
 	</select>

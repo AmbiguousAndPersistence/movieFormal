@@ -10,9 +10,6 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-
-import com.alibaba.fastjson.JSONObject;
 import com.qy.service.FilmService;
 import com.qy.util.JSONData;
 
@@ -44,6 +41,23 @@ public class FilmController {
 		// 返回json数据
 		//return JSONObject.toJSONString(jsonData);
 		return "redirect:/rate_rank.jsp";
+	}
+	
+	/**
+	 * 查询电影(最近电影前10)
+	 * @return
+	 */
+	@RequestMapping("query_newest")
+	//@ResponseBody
+	// 将方法返回值作为相应数据,而不是返回的页面路径
+	public String queryFilmNewest(HttpSession session) {
+		List<Map<String, Object>> filmList=filmService.queryFilmOrderByDoubanDesc();
+		session.setAttribute("filmList", filmList);
+		// 查询出来数据用JSONData来封装
+		//jsonData.setRows();
+		// 返回json数据
+		//return JSONObject.toJSONString(jsonData);
+		return "redirect:/index.jsp";
 	}
 	
 	/**
