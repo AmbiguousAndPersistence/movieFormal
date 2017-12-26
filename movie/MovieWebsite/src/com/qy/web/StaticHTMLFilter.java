@@ -12,7 +12,7 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * 过滤伪静态页面请�?跳转/WEB-INF/jsp/+请求相对路径
+ * 过滤伪静态页面请求并跳转/WEB-INF/jsp/+请求相对路径
  * 
  * @author DELL
  * 
@@ -34,6 +34,7 @@ public class StaticHTMLFilter implements Filter {
 		url = url.replace(".html", ".jsp");
 		url = url.replace(".htm", ".jsp");
 		req.getRequestDispatcher("/WEB-INF/jsp/" + url).forward(req, resp);
+		//req.getRequestDispatcher(url).forward(req, resp);
 		
 	}
 

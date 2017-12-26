@@ -11,7 +11,7 @@ import it.sauronsoftware.base64.Base64;
 /** */
 /**
  * <p>
- * BASE64编码解码工具�? * </p>
+ * BASE64编码解码工具�? * </p>
  * <p>
  * 依赖javabase64-1.3.1.jar
  * </p>
@@ -24,13 +24,13 @@ public class Base64Utils {
 
 	/** */
 	/**
-	 * 文件读取缓冲区大�?	 */
+	 * 文件读取缓冲区大�?	 */
 	private static final int CACHE_SIZE = 1024;
 
 	/** */
 	/**
 	 * <p>
-	 * BASE64字符串解码为二进制数�?	 * </p>
+	 * BASE64字符串解码为二进制数�?	 * </p>
 	 * 
 	 * @param base64
 	 * @return
@@ -47,7 +47,7 @@ public class Base64Utils {
 	/** */
 	/**
 	 * <p>
-	 * 二进制数据编码为BASE64字符�?	 * </p>
+	 * 二进制数据编码为BASE64字符�?	 * </p>
 	 * 
 	 * @param bytes
 	 * @return
@@ -60,9 +60,9 @@ public class Base64Utils {
 	/** */
 	/**
 	 * <p>
-	 * 将文件编码为BASE64字符�?	 * </p>
+	 * 将文件编码为BASE64字符串	 * </p>
 	 * <p>
-	 * 大文件慎用，可能会导致内存溢�?	 * </p>
+	 * 大文件慎用，可能会导致内存溢出	 * </p>
 	 * 
 	 * @param filePath
 	 *            文件绝对路径
@@ -77,12 +77,12 @@ public class Base64Utils {
 	/** */
 	/**
 	 * <p>
-	 * BASE64字符串转回文�?	 * </p>
+	 * BASE64字符串转回文串 </p>
 	 * 
 	 * @param filePath
 	 *            文件绝对路径
 	 * @param base64
-	 *            编码字符�?	 * @throws Exception
+	 *            编码字符�?	 * @throws Exception
 	 */
 	public static void decodeToFile(String filePath, String base64)
 			throws Exception {
@@ -127,7 +127,7 @@ public class Base64Utils {
 	 * </p>
 	 * 
 	 * @param bytes
-	 *            二进制数�?	 * @param filePath
+	 *            二进制数�?	 * @param filePath
 	 *            文件生成目录
 	 */
 	public static void byteArrayToFile(byte[] bytes, String filePath)

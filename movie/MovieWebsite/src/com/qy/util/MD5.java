@@ -23,7 +23,7 @@ public final class MD5 {
 	 * 
 	 * @param str
 	 *            加密的字符字符串
-	 * @return MD5加密后的字符�?
+	 * @return MD5加密后的字符串
 	 */
 	public final static String getMD5(String text) {
 		try {
@@ -38,8 +38,8 @@ public final class MD5 {
 	 * 加密
 	 * 
 	 * @param srcBytes
-	 *            待加密的字符�?
-	 * @return 加密后的字符�?
+	 *            待加密的字符串
+	 * @return 加密后的字符串
 	 */
 	public final static String getMD5(byte[] srcBytes) {
 		if (null == srcBytes) {
@@ -74,10 +74,10 @@ public final class MD5 {
 	 * 加密
 	 * 
 	 * @param text
-	 *            待加密的字符�?
+	 *            待加密的字符串
 	 * @param type
 	 *            密匙类型
-	 * @return 加密后的字符�?
+	 * @return 加密后的字符串
 	 */
 
 	public final static String getMD5(String text, int type) {
@@ -102,13 +102,13 @@ public final class MD5 {
 	}
 
 	/**
-	 * 加密字符�?
+	 * 加密字符�?
 	 * 
 	 * @param srcBytes
-	 *            待加密的字节�?
+	 *            待加密的字节串
 	 * @param type
 	 *            密匙类型
-	 * @return 加密后的字符�?
+	 * @return 加密后的字符串
 	 */
 	public final static String getMD5(byte[] srcBytes, int type) {
 		String md5Str;
@@ -131,7 +131,7 @@ public final class MD5 {
 	 * 
 	 * @param messsage
 	 *            待SHA1加密的字符串
-	 * @return 加密后的字符�?
+	 * @return 加密后的字符串
 	 */
 	public final static String getSHA1(String messsage) {
 		if (null == messsage) {
