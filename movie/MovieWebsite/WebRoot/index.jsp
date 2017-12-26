@@ -62,16 +62,6 @@ img {
 </head>
 
 <body>
-	<link
-		href="//img3.doubanio.com/dae/accounts/resources/321e246/shire/bundle.css"
-		rel="stylesheet" type="text/css">
-
-
-
-
-	<!-- <link
-		href="//img3.doubanio.com/dae/accounts/resources/321e246/movie/bundle.css"
-		rel="stylesheet" type="text/css"> -->
 
 	<link href="${basePath }/static/css/bundle.css" rel="stylesheet"
 		type="text/css">
@@ -79,8 +69,9 @@ img {
 	<div id="db-nav-movie" class="nav">
 		<div class="nav-wrap">
 			<div class="nav-primary">
-				<div class="nav-logo">
-					<a href="https:&#47;&#47;movie.douban.com">电影网</a>
+				<div style="float: left; height: 56px; width: 145px;margin: 0 13px 0 0;">
+					<!-- <a href="https:&#47;&#47;movie.douban.com">电影网</a> -->
+					<a style="display: block; width: 100%; height: 100%; overflow: hidden;font-size:40px;font-style: italic; text-align: center;" href="">电影网</a>
 				</div>
 				<div class="nav-search">
 					<form action="https:&#47;&#47;movie.douban.com/subject_search"
@@ -639,7 +630,7 @@ img {
 												onclick="moreurl(this, {from:'mv_a_pst'})"
 												href="https://movie.douban.com/subject/25889465/?from=showing">
 													<img
-													src="https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2507024038.webp"
+													src="${basePath }/p2507024038.webp"
 													alt="双面劫匪" rel="nofollow" class="">
 											</a></li>
 											<li class="title"><a
