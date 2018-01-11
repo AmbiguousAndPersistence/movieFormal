@@ -25,7 +25,7 @@ public class FilmDaoMysqlImpl extends BaseDao implements FilmDao {
 	@Override
 	public Map<String, Object> queryFilmByFilmId(Integer film_id) {
 		// TODO Auto-generated method stub
-		return getSqlSession().selectOne("queryFilmById");
+		return getSqlSession().selectOne("queryFilmById",film_id);
 	}
 	//delete before 20:36
 	//again

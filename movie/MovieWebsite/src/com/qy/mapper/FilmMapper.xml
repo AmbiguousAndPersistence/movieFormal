@@ -9,7 +9,7 @@
 			film_id,
 			film_name,
 			film_pic,
-			film_date,
+			film_year,
 			director,
 			actors,
 			short_comment,
@@ -17,7 +17,11 @@
 			douban_rating,
 			bt_link,
 			sort,
-			place
+			place,
+			date_infor,
+			time,
+			language,
+			douban_link
 		from
 			tb_film  ORDER BY film_id DESC  
          ]]>
@@ -28,7 +32,7 @@
 			film_id,
 			film_name,
 			film_pic,
-			film_date,
+			film_year,
 			director,
 			actors,
 			short_comment,
@@ -36,18 +40,22 @@
 			douban_rating,
 			bt_link,
 			sort,
-			place
+			place,
+			date_infor,
+			time,
+			language,
+			douban_link
 		from
 			tb_film  order by douban_rating desc  
          ]]>
   	</select>
-  	<select id="queryFilmById" parameterType="integer" resultType="map">
+  	<select id="queryFilmById"  resultType="map" parameterType="integer">
          <![CDATA[
           select 
           	film_id,
 			film_name,
 			film_pic,
-			film_date,
+			film_year,
 			director,
 			actors,
 			short_comment,
@@ -55,26 +63,13 @@
 			douban_rating,
 			bt_link,
 			sort,
-			place
-          from   tb_film   where film_id=#{value}   
+			place,
+			date_infor,
+			time,
+			language,
+			douban_link
+          from   tb_film   where film_id=#{film_id}   
          ]]>
 	</select>
-  	<!-- <insert id="addFilm" parameterType="map">
-  		<![CDATA[
-	 		insert into tb_film (
-				film_name,
-				film_pic,
-				film_years,
-				director,
-				actors,
-				short_comment,
-				synopsis,
-				douban_rating,
-				bt_link,
-				sort
-				)
-			values
-				()
-		 ]]>
-  	</insert> -->
+  	
   </mapper>
