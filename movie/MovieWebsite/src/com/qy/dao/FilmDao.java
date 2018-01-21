@@ -20,4 +20,15 @@ public interface FilmDao {
 	 * @return
 	 */
 	public Map<String, Object> queryFilmByFilmId(Integer film_id);
+	/**
+	 * 查询电影的总条数
+	 * @return
+	 */
+	public Integer queryFilmCount();
+	/**
+	 * 根据豆瓣评分降序排序后的分页查询 
+	 * @param page 当前页
+	 * @return
+	 */
+	public List<Map<String, Object>> queryFilmOrderByDoubanByPage(Integer page);
 }

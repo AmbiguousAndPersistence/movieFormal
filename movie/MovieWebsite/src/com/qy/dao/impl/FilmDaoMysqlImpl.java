@@ -29,5 +29,15 @@ public class FilmDaoMysqlImpl extends BaseDao implements FilmDao {
 	}
 	//delete before 20:36
 	//again
+	@Override
+	public List<Map<String, Object>> queryFilmOrderByDoubanByPage(Integer page) {
+		// TODO Auto-generated method stub
+		return getSqlSession().selectList("queryFilmOrderByDoubanByPage",page);
+	}
+	@Override
+	public Integer queryFilmCount() {
+		// TODO Auto-generated method stub
+		return getSqlSession().selectOne("queryFilmCount");
+	}
 
 }

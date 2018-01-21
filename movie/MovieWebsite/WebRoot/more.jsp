@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -47,7 +48,66 @@
 }
 </style>
 
-<style type="text/css"></style>
+<style type="text/css">/* 分页 */
+* {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.fl {
+	float: left;
+}
+
+.box {
+	font-size: 9px;
+	height: 40px;
+	line-height: 40px;
+	left: 50%;
+	top: 50%;
+	text-align: center;
+}
+
+.box button {
+	padding: 0 10px;
+	margin: 0 10px;
+	height: 40px;
+	float: left;
+	cursor: pointer;
+	border: 1px solid #ebebeb;
+	background-color: #ffffff;
+}
+
+.box .first-page,.box .last-page {
+	margin: 0;
+}
+
+.box .pageWrap {
+	height: 40px;
+	float: left;
+	overflow: hidden;
+}
+
+.box .pageWrap ul {
+	width: 100000px;
+	height: 40px;
+	float: left;
+}
+
+.box .pageWrap ul li {
+	width: 60px;
+	height: 40px;
+	border: 1px solid #ebebeb;
+	line-height: 40px;
+	box-sizing: border-box;
+	cursor: pointer;
+	float: left;
+}
+
+.box .pageWrap ul .sel-page {
+	background-color: #CCD0CD;
+}
+</style>
 <style type="text/css">
 img {
 	max-width: 100%;
@@ -271,19 +331,29 @@ img {
 						<div class="fliter-placeholder"></div>
 
 						<div class="list-wp">
-							<div class="list-wp" style="width: 700px;">
-								<a target="_blank" href="https://movie.douban.com/subject/1292052/" class="item">
-										<div >
-										<span class="pic"><img
-											src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p480747492.jpg"
-											alt="肖申克的救赎"></span>
-										</div> 	
-									
-										<span class="title">肖申克的救赎</span> <span class="rate">9.6</span>
-									
-								</a> 
+							<div class="list-wp" id="list-wp" style="width: 700px;">
+								<%-- <c:forEach items="${filmList }" var="film">
+									<a target="_blank"
+										href="${basePath }film/query_ById?film_id=${film.film_id}"
+										class="item">
+										<div>
+											<span class="pic"><img src="/img/${film.film_pic}"
+												alt="${film.film_name }"></span>
+										</div>
+										<p>
+											<span class="title">${film.film_name }</span> <span
+												class="rate">${film.douban_rating }</span> <span
+												class="title">${film.short_comment }</span>
+										</p>
+									</a>
+								</c:forEach> --%>
 							</div>
-							<a class="more" href="javascript:;">载入中...</a>
+						<!-- 分页 -->
+						
+							<div class="box" id="box">
+								
+							</div>
+							<!-- <a class="more" href="javascript:;">载入中...</a> -->
 						</div>
 
 
@@ -360,16 +430,58 @@ img {
 				<a href="https://www.douban.com/doubanapp/">移动应用</a> · <a
 				href="https://www.douban.com/partner/">豆瓣广告</a>
 			</span>
-
 		</div>
 
 	</div>
 	<!-- COLLECTED JS -->
 
 
-
-
-
+	<!-- 分页script -->
+	<script src="${basePath }static/js/fenye/jquery-1.11.1.min.js"></script>
+	<script src="${basePath }static/js/fenye/paging2.js"></script>
+	<script>
+	
+		var setTotalCount = 301;
+		$('#box').paging({
+			initPageNo : 1, // 初始页码
+			totalPages : ${pageS}, //总页数
+			totalCount : '合计' + setTotalCount + '条数据', // 条目总数
+			slideSpeed : 1000, // 缓动速度。单位毫秒
+			jump : true, //是否支持跳转
+			callback : function(page) { // 回调函数
+				console.log(page);
+			}
+		});
+		function toPage(i) {
+			//window.location="${basePath}film/query_goodList?page="+i+"";
+			$.ajax({
+				type : "post",
+				url : "${basePath}film/query_goodList",
+				data :{ page :i},
+				dataType:"json",
+				success:function(jsonData){
+					var list = document.getElementById("list-wp");
+					list.innerHTML="";
+					var len=jsonData.rows.length; 
+	  	        	for(var i=0;i<len;i++){
+	  	        		list.innerHTML+="<a target='_blank' " +
+							 " href='${basePath }film/query_ById?film_id="+jsonData.rows[i].film_id+"'" +
+							" class='item'>"+
+							" <div> "+
+								" <span class='pic'><img src='/img/"+jsonData.rows[i].film_pic+"'"+
+									"alt="+jsonData.rows[i].film_name+"></span>"+
+							" </div> "+
+							" <p> "+
+								"<span class='title'>"+jsonData.rows[i].film_name+"</span> <span"+
+									" class='rate'>"+jsonData.rows[i].douban_rating+"</span> <span"+
+									" class='title'>"+jsonData.rows[i].short_comment+"</span>"+
+							"</p>"+
+						"</a>";
+	  	        	}
+				}
+			});
+		};
+	</script>
 
 
 

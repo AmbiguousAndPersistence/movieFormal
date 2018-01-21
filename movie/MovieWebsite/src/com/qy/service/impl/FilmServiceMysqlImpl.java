@@ -32,4 +32,16 @@ public class FilmServiceMysqlImpl implements FilmService {
 		return filmDao.queryFilmByFilmId(film_id);
 	}
 
+	@Override
+	public List<Map<String, Object>> queryFilmOrderByDoubanByPage(Integer page) {
+		// TODO Auto-generated method stub
+		return filmDao.queryFilmOrderByDoubanByPage(page);
+	}
+
+	@Override
+	public Integer queryFilmCount() {
+		// TODO Auto-generated method stub
+		return filmDao.queryFilmCount();
+	}
+
 }

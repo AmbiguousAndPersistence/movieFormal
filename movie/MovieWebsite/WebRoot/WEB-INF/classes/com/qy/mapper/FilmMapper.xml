@@ -71,5 +71,32 @@
           from   tb_film   where film_id=#{film_id}   
          ]]>
 	</select>
-  	
+	<!-- 查询电影的总条数-->
+  	<select id="queryFilmCount"  resultType="integer" parameterType="integer">
+         <![CDATA[
+          select count(*) from tb_film   
+         ]]>
+	</select>
+	<!-- 根据豆瓣评分降序排序后的分页查询 -->
+  	<select id="queryFilmOrderByDoubanByPage"  resultType="map" parameterType="integer">
+         <![CDATA[
+          select film_id,
+			film_name,
+			film_pic,
+			film_year,
+			director,
+			actors,
+			short_comment,
+			synopsis,
+			douban_rating,
+			bt_link,
+			sort,
+			place,
+			date_infor,
+			time,
+			language,
+			douban_link 
+ 		from tb_film order by douban_rating desc  limit #{page},25   
+         ]]>
+	</select>
   </mapper>

@@ -5,9 +5,11 @@ import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
+import org.apache.catalina.connector.Request;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -80,21 +82,43 @@ public class FilmController {
 		//return JSONObject.toJSONString(jsonData);
 		return "redirect:/details.jsp";
 	}
-	
+	/**
+	 * 查询电影总条数
+	 * @return
+	 */
+	@RequestMapping("query_count")
+	//@ResponseBody
+	// 将方法返回值作为相应数据,而不是返回的页面路径
+	public String queryFilmCount(HttpSession session) {
+		Integer count=filmService.queryFilmCount();
+		Integer pageS=0;
+		if(count%25!=0){
+			pageS=count/25+1;
+		}else pageS=count/25;
+		session.setAttribute("pageS", pageS);
+		// 查询出来数据用JSONData来封装
+		//jsonData.setRows();
+		// 返回json数据
+		//return JSONObject.toJSONString(jsonData);
+		return "redirect:/more.jsp";
+	}
 	/**
 	 * 2017评分最高电影片单
 	 * @return
 	 */
 	@RequestMapping("query_goodList")
-	//@ResponseBody
+	@ResponseBody
 	// 将方法返回值作为相应数据,而不是返回的页面路径
-	public String queryGoodFilmList(Integer film_id,HttpSession session) {
-		Map<String, Object> film=filmService.queryFilmByFilmId(film_id);
-		session.setAttribute("film", film);
+	public String queryGoodFilmList(Integer page,HttpSession session) {
+		System.out.println(page);
+		//Integer pageInt=Integer.parseInt(page);
+		if(page==null) page=1;
+		List<Map<String, Object>> filmList=filmService.queryFilmOrderByDoubanByPage(page-1);
+		//session.setAttribute("filmList", filmList);
 		// 查询出来数据用JSONData来封装
-		//jsonData.setRows();
+		jsonData.setRows(filmList);
 		// 返回json数据
-		//return JSONObject.toJSONString(jsonData);
-		return "redirect:/details.jsp";
+		return JSONObject.toJSONString(jsonData);
+		//return "redirect:/more.jsp";
 	}
 }

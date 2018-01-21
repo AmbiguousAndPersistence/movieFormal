@@ -307,7 +307,6 @@ img {
 						<div class="indent" id="link-report">
 
 							<span class="short"> </span> <span> ${film['synopsis']} <br />
-								本片根据著名作家斯蒂芬·金（Stephen Edwin King）的原著改编。
 							</span>
 						</div>
 					</div>
