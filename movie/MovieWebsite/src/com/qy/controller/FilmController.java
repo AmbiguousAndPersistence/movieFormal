@@ -5,11 +5,9 @@ import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
-import org.apache.catalina.connector.Request;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -47,7 +45,44 @@ public class FilmController {
 		//return JSONObject.toJSONString(jsonData);
 		//return "redirect:/rate_rank.jsp";
 	}
-	
+	/**
+	 * 查询电影（根据豆瓣评分降分排序）,分页查询
+	 * @return
+	 */
+	@RequestMapping("query_goodList")
+	@ResponseBody
+	// 将方法返回值作为相应数据,而不是返回的页面路径
+	public String queryGoodFilmList(Integer page,HttpSession session) {
+		System.out.println(page);
+		//Integer pageInt=Integer.parseInt(page);
+		if(page==null) page=1;
+		List<Map<String, Object>> filmList=filmService.queryFilmOrderByDoubanByPage(page-1);
+		//List<Map<String, Object>> filmList2=filmService.queryFilmOrderByDoubanByPage(page-1);
+		//filmList.addAll(filmList2);
+		//session.setAttribute("filmList", filmList);
+		// 查询出来数据用JSONData来封装
+		jsonData.setRows(filmList);
+		// 返回json数据
+		return JSONObject.toJSONString(jsonData);
+		//return "redirect:/more.jsp";
+	}
+	/**
+	 * 首页加载要做的事
+	 * @return
+	 */
+	@RequestMapping("index_query")
+	@ResponseBody
+	// 将方法返回值作为相应数据,而不是返回的页面路径
+	public String queryFilm_Index(HttpSession session) {
+		List<Map<String, Object>> filmList=filmService.queryFilmOrderByDoubanDesc();
+		//session.setAttribute("filmList", filmList);
+		// 查询出来数据用JSONData来封装
+		jsonData.setRows(filmList);
+		// 返回json数据
+		return JSONObject.toJSONString(jsonData);
+		//return "redirect:/m.jsp";
+
+	}
 	/**
 	 * 查询电影(最近电影前10)
 	 * @return
@@ -102,23 +137,5 @@ public class FilmController {
 		//return JSONObject.toJSONString(jsonData);
 		return "redirect:/more.jsp";
 	}
-	/**
-	 * 2017评分最高电影片单
-	 * @return
-	 */
-	@RequestMapping("query_goodList")
-	@ResponseBody
-	// 将方法返回值作为相应数据,而不是返回的页面路径
-	public String queryGoodFilmList(Integer page,HttpSession session) {
-		System.out.println(page);
-		//Integer pageInt=Integer.parseInt(page);
-		if(page==null) page=1;
-		List<Map<String, Object>> filmList=filmService.queryFilmOrderByDoubanByPage(page-1);
-		//session.setAttribute("filmList", filmList);
-		// 查询出来数据用JSONData来封装
-		jsonData.setRows(filmList);
-		// 返回json数据
-		return JSONObject.toJSONString(jsonData);
-		//return "redirect:/more.jsp";
-	}
+
 }

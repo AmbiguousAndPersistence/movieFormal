@@ -55,6 +55,43 @@ img {
 	max-width: 100%;
 }
 </style>
+	<%--迅雷下载--%>
+	<style type="text/css">
+		.cpagelist li {
+			float: left;
+			margin: 4px 5px;
+		}
+
+		.backcolor1 {
+			background: #e9e9e9;
+		}
+		.dlurlelement {
+			width: 610px;
+			height: auto;
+			padding: 5px 0 5px 5px;
+			line-height: 24px;
+			border-bottom: #dedede 1px dashed;
+			font-size: 16px;
+			margin: 0 !important;
+		}
+		.dlbutton1 {
+			background: #267EE5;
+		}
+		.dlbutton1 a {
+			color: #fff;
+		}
+		.fa {
+			display: inline-block;
+			font: normal normal normal 14px/1 FontAwesome;
+			font-size: inherit;
+			text-rendering: auto;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+		}
+		.fa-download:before {
+			content: "\f019";
+		}
+	</style>
 <link rel="stylesheet"
 	href="https://img3.doubanio.com/misc/mixed_static/307f9a1abcc10a9a.css">
 
@@ -332,8 +369,20 @@ img {
 					</div>
 
 					<div>
-						<p>迅雷下载</p>
+						<li class="clearfix dlurlelement backcolor1" style="background-color: rgb(250, 250, 250);">
+                <span class="dlname nm">
+                <span style="width:360px !important; display:inline-block;">
+                                      <span class="label_mob">手机</span>
+                                                      <a rel="nofollow" href="thunder://QUFodHRwOi8vZGwxNjIuODBzLmltOjkyMC8xNzEyL+iKs+WNjlvnu4jmnoHpooTlkYpdL+iKs+WNjlvnu4jmnoHpooTlkYpdX2hkLm1wNFpa">
+                                      芳华[终极预告]</a>
+                     &nbsp; &nbsp; &nbsp; 21.5 M                </span>
 
+                 </span>
+							<span class="xunlei dlbutton1">
+                      <a rel="nofollow" href="thunder://QUFodHRwOi8vZGwxNjIuODBzLmltOjkyMC8xNzEyL+iKs+WNjlvnu4jmnoHpooTlkYpdL+iKs+WNjlvnu4jmnoHpooTlkYpdX2hkLm1wNFpa" thunderrestitle="芳华[终极预告]" thunderpid="135833" xstvlbbs="thunder://QUFodHRwOi8vZGwxNjIuODBzLmltOjkyMC8xNzEyL+iKs+WNjlvnu4jmnoHpooTlkYpdL+iKs+WNjlvnu4jmnoHpooTlkYpdX2hkLm1wNFpa"><i class="fa fa-download"></i> 迅雷下载</a>
+                    </span>
+
+						</li>
 					</div>
 
 

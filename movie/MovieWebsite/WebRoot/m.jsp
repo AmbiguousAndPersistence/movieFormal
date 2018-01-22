@@ -163,9 +163,9 @@ img {
 										href="javascript:void(0)"></a></span> <span class="next-btn"><a
 										class="btn-next" href="javascript:void(0)"></a></span>
 								</div> -->
-								<a style="float: left;margin:8px 0 0 325px;"
+								<%--<a style="float: left;margin:8px 0 0 325px;"
 									href="/explore#!type=movie&amp;tag=%E7%83%AD%E9%97%A8"
-									class="more-link">更多»</a>
+									class="more-link">更多»</a>--%>
 							</ul>
 
 							<!-- <h2>
@@ -177,7 +177,7 @@ img {
 						<div class="screening-bd tab-content" style="overflow:auto; ">
 							<div class="tab-pane active" id="panel-449764">
 								<ul class="ui-slide-content">
-									<c:forEach items="${filmList }" var="film">
+									<%--<c:forEach items="${filmList }" var="film">
 										<li class="ui-slide-item">
 											<ul class="">
 												<li class="poster"><a
@@ -196,7 +196,7 @@ img {
 
 											</ul>
 										</li>
-									</c:forEach>
+									</c:forEach>--%>
 
 								</ul>
 							</div>
