@@ -31,4 +31,15 @@ public interface FilmService {
 	 * @return
 	 */
 	public List<Map<String, Object>> queryFilmOrderByDoubanByPage(Integer page);
+	/**
+	 * 查询每周推荐电影
+	 * @return
+	 */
+	public List<Map<String, Object>> queryRecommendFilm();
+	/**
+	 * 类似电影推荐（10个）
+	 * @param paramMap 标签
+	 * @return
+	 */
+	public List<Map<String, Object>> querySimilarFilm(Map<String, Object> paramMap);
 }

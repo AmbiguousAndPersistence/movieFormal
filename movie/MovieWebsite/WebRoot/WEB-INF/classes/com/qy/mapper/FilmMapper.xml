@@ -21,6 +21,7 @@
 			date_infor,
 			time,
 			language,
+			label,
 			douban_link
 		from
 			tb_film  ORDER BY film_id DESC  
@@ -44,6 +45,7 @@
 			date_infor,
 			time,
 			language,
+			label,
 			douban_link
 		from
 			tb_film  order by douban_rating desc  
@@ -67,6 +69,7 @@
 			date_infor,
 			time,
 			language,
+			label,
 			douban_link
           from   tb_film   where film_id=#{film_id}   
          ]]>
@@ -95,8 +98,72 @@
 			date_infor,
 			time,
 			language,
+			label,
 			douban_link 
  		from tb_film order by douban_rating desc  limit #{page},25   
+         ]]>
+	</select>
+	<!-- 查询每周推荐电影 -->
+	<select id="queryRecommendFilm"  resultType="map" >
+         <![CDATA[
+          select
+			film_id,
+			film_name,
+			film_pic,
+			film_year,
+			director,
+			actors,
+			short_comment,
+			synopsis,
+			douban_rating,
+			bt_link,
+			sort,
+			place,
+			date_infor,
+			time,
+			language,
+			label,
+			douban_link
+		from
+			tb_film
+		where
+			film_id in (
+				select
+					film_id
+				from
+					tb_recommend
+			)  
+         ]]>
+	</select>
+	<!-- 类似电影推荐（10个） -->
+	<select id="querySimilarFilm"  resultType="map" parameterType="map">
+         <![CDATA[
+          select
+			film_id,
+			film_name,
+			film_pic,
+			film_year,
+			director,
+			actors,
+			short_comment,
+			synopsis,
+			douban_rating,
+			bt_link,
+			sort,
+			place,
+			date_infor,
+			time,
+			language,
+			label,
+			douban_link
+		from
+			tb_film
+		where
+			label like "%${label1}%"
+		and label like "%${label2}%"
+		order by douban_rating desc
+		limit 10 
+ 
          ]]>
 	</select>
   </mapper>

@@ -47,51 +47,87 @@
 
 
 
-
+<!-- footer -->
 <style type="text/css">
+#footer_ied {
+	text-align: center;
+	font-size: 12px;
+	line-height: 19px;
+	color: #a4a4a4;
+}
+
+#footer_ied {
+	clear: both;
+	width: 962px;
+	margin: 0 auto;
+	padding: 33px 18px 10px 20px;
+}
 </style>
 <style type="text/css">
 img {
 	max-width: 100%;
 }
 </style>
-	<%--迅雷下载--%>
-	<style type="text/css">
-		.cpagelist li {
-			float: left;
-			margin: 4px 5px;
-		}
+<%--迅雷下载--%>
+<style type="text/css">
+.cpagelist li {
+	float: left;
+	margin: 4px 5px;
+}
 
-		.backcolor1 {
-			background: #e9e9e9;
-		}
-		.dlurlelement {
-			width: 610px;
-			height: auto;
-			padding: 5px 0 5px 5px;
-			line-height: 24px;
-			border-bottom: #dedede 1px dashed;
-			font-size: 16px;
-			margin: 0 !important;
-		}
-		.dlbutton1 {
-			background: #267EE5;
-		}
-		.dlbutton1 a {
-			color: #fff;
-		}
-		.fa {
-			display: inline-block;
-			font: normal normal normal 14px/1 FontAwesome;
-			font-size: inherit;
-			text-rendering: auto;
-			-webkit-font-smoothing: antialiased;
-			-moz-osx-font-smoothing: grayscale;
-		}
-		.fa-download:before {
-			content: "\f019";
-		}
-	</style>
+.backcolor1 {
+	background: #e9e9e9;
+}
+
+.dlurlelement {
+	width: 610px;
+	height: auto;
+	padding: 5px 0 5px 5px;
+	line-height: 24px;
+	border-bottom: #dedede 1px dashed;
+	font-size: 16px;
+	margin: 0 !important;
+}
+
+.dlbutton1 {
+	background: #267EE5;
+}
+
+.dlbutton1 {
+	float: right;
+	display: block;
+	margin-right: 5px;
+	height: 22px;
+	line-height: 22px;
+	padding: 0 10px;
+}
+
+.dlbutton2 {
+	background: #267EE5;
+	color: #fff;
+	margin-right: 5px;
+	height: 22px;
+	line-height: 22px;
+	padding: 0 10px;
+}
+
+.dlbutton1 a {
+	color: #fff;
+}
+
+.fa {
+	display: inline-block;
+	font: normal normal normal 14px/1 FontAwesome;
+	font-size: inherit;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.fa-download:before {
+	content: "\f019";
+}
+</style>
 <link rel="stylesheet"
 	href="https://img3.doubanio.com/misc/mixed_static/307f9a1abcc10a9a.css">
 
@@ -133,21 +169,20 @@ img {
 						href="">电影网</a>
 				</div>
 				<div class="nav-search">
-					<form action="https:&#47;&#47;movie.douban.com/subject_search"
-						method="get">
+					<form action="https://movie.douban.com/subject_search" method="get">
 						<fieldset style="">
 							<legend>搜索：</legend>
 							<label for="inp-query"> </label>
 							<div class="inp-btn" style="float: right;">
 								<input
-									style="background:url('${basePath}/static/img/test.png'); "
-									type="submit" value="搜索">搜索
+									style=" background:url('http://localhost:8080/MovieWebsite//static/img/test1.png'); "
+									type="submit" value="搜索">
 							</div>
 							<div class="inp" style="float: right;">
 								<input id="inp-query" name="search_text" size="22"
 									maxlength="60" placeholder="电影、电视剧、综艺、影人" value="">
 							</div>
-							<input type="hidden" name="cat" value="1002" />
+							<input type="hidden" name="cat" value="1002">
 						</fieldset>
 					</form>
 				</div>
@@ -157,21 +192,20 @@ img {
 
 
 			<div class="nav-items">
-				<ul >
-					<li><a href="https://movie.douban.com/mine">豆瓣电影排行榜</a></li>
+				<ul>
+					<li><a
+						href="http://localhost:8080/MovieWebsite/film/query_count">豆瓣电影排行榜</a></li>
 					<li><a href="https://movie.douban.com/explore">选电影</a></li>
 					<li><a href="https://movie.douban.com/tv/">电视剧</a></li>
 					<li><a href="https://movie.douban.com/tag/">分类</a></li>
 					<li><a href="https://movie.douban.com/review/best/">影评</a></li>
 					<li><a
-						href="https://movie.douban.com/standbyme/2017?source=navigation">2017评分最高电影片单</a>
-					</li>
+						href="http://localhost:8080/MovieWebsite/film/query_count">2017评分最高电影片单</a></li>
 				</ul>
 			</div>
 
 		</div>
 	</div>
-
 
 
 
@@ -191,10 +225,9 @@ img {
 			<div id="dale_movie_subject_top_icon"></div>
 			<h1>
 				<span property="v:itemreviewed">${film['film_name']}</span> <span
-					class="year">(${film['film_year']})</span></br>
-					<span class='pl'>${film['short_comment']}</span>
+					class="year">(${film['film_year']})</span></br> <span class='pl'>${film['short_comment']}</span>
 			</h1>
-			
+
 			<div class="grid-16-8 clearfix">
 
 
@@ -224,7 +257,7 @@ img {
 										title="${film['film_name']}" alt="The Shawshank Redemption"
 										rel="v:image" />
 									</a>
-									
+
 								</div>
 
 
@@ -334,9 +367,6 @@ img {
 					<div class="related-info" style="margin-bottom:-10px;">
 						<a name="intro"></a>
 
-
-
-
 						<h2>
 							<i class="">剧情简介</i> · · · · · ·
 						</h2>
@@ -353,89 +383,35 @@ img {
 
 
 
-
-
-
-
-
-					<!-- 影人 -->
-
-
-
 					<link rel="stylesheet"
 						href="https://img3.doubanio.com/f/fanta/ba954f353fb7e2f830059e78c8e9e4791a96a4f6/components/dist/css/answer_entry.css">
-					<div id="author-wrapper" class="author-wrapper">
-						<div class="loading"></div>
-					</div>
-
 					<div>
-						<li class="clearfix dlurlelement backcolor1" style="background-color: rgb(250, 250, 250);">
-                <span class="dlname nm">
-                <span style="width:360px !important; display:inline-block;">
-                                      <span class="label_mob">手机</span>
-                                                      <a rel="nofollow" href="thunder://QUFodHRwOi8vZGwxNjIuODBzLmltOjkyMC8xNzEyL+iKs+WNjlvnu4jmnoHpooTlkYpdL+iKs+WNjlvnu4jmnoHpooTlkYpdX2hkLm1wNFpa">
-                                      芳华[终极预告]</a>
-                     &nbsp; &nbsp; &nbsp; 21.5 M                </span>
-
-                 </span>
-							<span class="xunlei dlbutton1">
-                      <a rel="nofollow" href="thunder://QUFodHRwOi8vZGwxNjIuODBzLmltOjkyMC8xNzEyL+iKs+WNjlvnu4jmnoHpooTlkYpdL+iKs+WNjlvnu4jmnoHpooTlkYpdX2hkLm1wNFpa" thunderrestitle="芳华[终极预告]" thunderpid="135833" xstvlbbs="thunder://QUFodHRwOi8vZGwxNjIuODBzLmltOjkyMC8xNzEyL+iKs+WNjlvnu4jmnoHpooTlkYpdL+iKs+WNjlvnu4jmnoHpooTlkYpdX2hkLm1wNFpa"><i class="fa fa-download"></i> 迅雷下载</a>
-                    </span>
-
-						</li>
-					</div>
-
-
-
-
-
-
-
-
-
-
-					<div id="related-pic" class="related-pic">
-
-
-
 						<h2>
-							<i class="">肖申克的救赎的视频和图片</i> · · · · · · <span class="pl">
-								( <a
-								href="https://movie.douban.com/subject/1292052/trailer#trailer">预告片1</a>&nbsp;|&nbsp;<a
-								href="https://movie.douban.com/subject/1292052/all_photos">图片636</a>&nbsp;|&nbsp;<a
-								href="https://movie.douban.com/subject/1292052/mupload">添加图片</a>
-								)
-							</span>
+							<i class="">预告片欣赏</i> · · · · · ·
 						</h2>
-
-
-						<ul class="related-pic-bd">
-							<li><a class="related-pic-video"
-								href="https://movie.douban.com/trailer/108756/#content"> <span></span>
-									<img
-									src="https://img3.doubanio.com/img/trailer/medium/1433841022.jpg?"
-									alt="预告片" />
-							</a></li>
-							<li><a
-								href="https://movie.douban.com/photos/photo/490571815/"><img
-									src="https://img3.doubanio.com/view/photo/sqxs/public/p490571815.webp"
-									alt="图片" /></a></li>
-							<li><a
-								href="https://movie.douban.com/photos/photo/490576110/"><img
-									src="https://img3.doubanio.com/view/photo/sqxs/public/p490576110.webp"
-									alt="图片" /></a></li>
-							<li><a
-								href="https://movie.douban.com/photos/photo/456482220/"><img
-									src="https://img3.doubanio.com/view/photo/sqxs/public/p456482220.webp"
-									alt="图片" /></a></li>
-							<li><a
-								href="https://movie.douban.com/photos/photo/2309770674/"><img
-									src="https://img3.doubanio.com/view/photo/sqxs/public/p2309770674.webp"
-									alt="图片" /></a></li>
-						</ul>
+						<embed src="https://imgcache.qq.com/tencentvideo_v1/playerv3/TPout.swf?max_age=86400&v=20161117&vid=g0379s10h9k&auto=0" allowFullScreen="true" quality="high" width="700" height="400" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>
 					</div>
+					<br></br>
+					<div>
+						<h2>
+							<i class="">电影下载</i> · · · · · ·
+						</h2>
+						<li class="clearfix dlurlelement backcolor1"
+							style="background-color: rgb(250, 250, 250);"><span
+							class="dlname nm"> <span
+								style="width:360px !important; display:inline-block;"> <span
+									class="dlbutton2">1024</span> <a rel="nofollow"
+									href="thunder://QUFodHRwOi8vZGwxNjIuODBzLmltOjkyMC8xNzEyL+iKs+WNjlvnu4jmnoHpooTlkYpdL+iKs+WNjlvnu4jmnoHpooTlkYpdX2hkLm1wNFpa">
+										芳华[终极预告]</a> &nbsp; &nbsp; &nbsp; 21.5 M
+							</span>
 
-
+						</span> <span class="xunlei dlbutton1"> <a rel="nofollow"
+								href="thunder://QUFodHRwOi8vZGwxNjIuODBzLmltOjkyMC8xNzEyL+iKs+WNjlvnu4jmnoHpooTlkYpdL+iKs+WNjlvnu4jmnoHpooTlkYpdX2hkLm1wNFpa"
+								thunderrestitle="芳华[终极预告]" thunderpid="135833"
+								xstvlbbs="thunder://QUFodHRwOi8vZGwxNjIuODBzLmltOjkyMC8xNzEyL+iKs+WNjlvnu4jmnoHpooTlkYpdL+iKs+WNjlvnu4jmnoHpooTlkYpdX2hkLm1wNFpa">
+									迅雷下载</a>
+						</span></li>
+					</div>
 
 
 
@@ -466,225 +442,38 @@ img {
 	margin-left: -5px
 }
 
-.mod {
-	margin-bottom: 25px
-}
-
-.mod .hd {
-	margin-bottom: 10px
-}
-
-.mod .hd h2 {
-	margin: 24px 0 3px 0
-}
 </style>
-
-
-					<div class="mod">
-						<div class="hd">
-
-							<h2>
-								<i class="">肖申克的救赎的获奖情况</i> · · · · · · <span class="pl">
-									( <a href="https://movie.douban.com/subject/1292052/awards/">全部</a>
-									)
-								</span>
-							</h2>
-
-						</div>
-
-						<ul class="award">
-							<li><a href="https://movie.douban.com/awards/Oscar/67/">第67届奥斯卡金像奖</a>
-							</li>
-							<li>最佳影片(提名)</li>
-							<li><a href='https://movie.douban.com/celebrity/1291197/'
-								target='_blank'>尼基·马文</a></li>
-						</ul>
-
-						<ul class="award">
-							<li><a href="https://movie.douban.com/awards/jap/19/">第19届日本电影学院奖</a>
-							</li>
-							<li>最佳外语片</li>
-							<li></li>
-						</ul>
-
-						<ul class="award">
-							<li><a href="https://movie.douban.com/awards/hochi/20/">第20届报知映画赏</a>
-							</li>
-							<li>海外作品奖</li>
-							<li><a href='https://movie.douban.com/celebrity/1047973/'
-								target='_blank'>弗兰克·德拉邦特</a></li>
-						</ul>
-					</div>
-
-
-
-
-
-
-
-
 
 
 					<div id="recommendations" class="">
 
 
 						<h2>
-							<i class="">喜欢这部电影的人也喜欢</i> · · · · · ·
+							<i class="">相关电影推荐</i> · · · · · ·
 						</h2>
 
 
 
-						<div class="recommendations-bd">
+						<div class="recommendations-bd" >
+						<c:forEach items="${similarFilmList }" var="sFilm">
 							<dl class="">
 								<dt>
 									<a
-										href="https://movie.douban.com/subject/1292720/?from=subject-page">
+										href="${basePath }film/query_ById?film_id=${sFilm.film_id}">
 										<img
-										src="https://img1.doubanio.com/view/photo/s_ratio_poster/public/p510876377.webp"
-										alt="阿甘正传" class="" />
+										src="/img/${sFilm.film_pic }"
+										alt="${sFilm.film_name }" class="" />
 									</a>
 								</dt>
 								<dd>
 									<a
-										href="https://movie.douban.com/subject/1292720/?from=subject-page"
-										class="">阿甘正传</a>
+										href="${basePath }film/query_ById?film_id=${sFilm.film_id}"
+										class="">${sFilm.film_name }</a>
 								</dd>
 							</dl>
-							<dl class="">
-								<dt>
-									<a
-										href="https://movie.douban.com/subject/1849031/?from=subject-page">
-										<img
-										src="https://img1.doubanio.com/view/photo/s_ratio_poster/public/p1312700628.webp"
-										alt="当幸福来敲门" class="" />
-									</a>
-								</dt>
-								<dd>
-									<a
-										href="https://movie.douban.com/subject/1849031/?from=subject-page"
-										class="">当幸福来敲门</a>
-								</dd>
-							</dl>
-							<dl class="">
-								<dt>
-									<a
-										href="https://movie.douban.com/subject/2209573/?from=subject-page">
-										<img
-										src="https://img1.doubanio.com/view/photo/s_ratio_poster/public/p470476887.webp"
-										alt="贫民窟的百万富翁" class="" />
-									</a>
-								</dt>
-								<dd>
-									<a
-										href="https://movie.douban.com/subject/2209573/?from=subject-page"
-										class="">贫民窟的百万富翁</a>
-								</dd>
-							</dl>
-							<dl class="">
-								<dt>
-									<a
-										href="https://movie.douban.com/subject/1292224/?from=subject-page">
-										<img
-										src="https://img1.doubanio.com/view/photo/s_ratio_poster/public/p792238287.webp"
-										alt="飞越疯人院" class="" />
-									</a>
-								</dt>
-								<dd>
-									<a
-										href="https://movie.douban.com/subject/1292224/?from=subject-page"
-										class="">飞越疯人院</a>
-								</dd>
-							</dl>
-							<dl class="">
-								<dt>
-									<a
-										href="https://movie.douban.com/subject/3793023/?from=subject-page">
-										<img
-										src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p579729551.webp"
-										alt="三傻大闹宝莱坞" class="" />
-									</a>
-								</dt>
-								<dd>
-									<a
-										href="https://movie.douban.com/subject/3793023/?from=subject-page"
-										class="">三傻大闹宝莱坞</a>
-								</dd>
-							</dl>
-							<dl class="">
-								<dt>
-									<a
-										href="https://movie.douban.com/subject/1298653/?from=subject-page">
-										<img
-										src="https://img1.doubanio.com/view/photo/s_ratio_poster/public/p1341248319.webp"
-										alt="荒岛余生" class="" />
-									</a>
-								</dt>
-								<dd>
-									<a
-										href="https://movie.douban.com/subject/1298653/?from=subject-page"
-										class="">荒岛余生</a>
-								</dd>
-							</dl>
-							<dl class="">
-								<dt>
-									<a
-										href="https://movie.douban.com/subject/1292064/?from=subject-page">
-										<img
-										src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p479682972.webp"
-										alt="楚门的世界" class="" />
-									</a>
-								</dt>
-								<dd>
-									<a
-										href="https://movie.douban.com/subject/1292064/?from=subject-page"
-										class="">楚门的世界</a>
-								</dd>
-							</dl>
-							<dl class="">
-								<dt>
-									<a
-										href="https://movie.douban.com/subject/1292656/?from=subject-page">
-										<img
-										src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p480965695.webp"
-										alt="心灵捕手" class="" />
-									</a>
-								</dt>
-								<dd>
-									<a
-										href="https://movie.douban.com/subject/1292656/?from=subject-page"
-										class="">心灵捕手</a>
-								</dd>
-							</dl>
-							<dl class="">
-								<dt>
-									<a
-										href="https://movie.douban.com/subject/4023638/?from=subject-page">
-										<img
-										src="https://img1.doubanio.com/view/photo/s_ratio_poster/public/p768879237.webp"
-										alt="国王的演讲" class="" />
-									</a>
-								</dt>
-								<dd>
-									<a
-										href="https://movie.douban.com/subject/4023638/?from=subject-page"
-										class="">国王的演讲</a>
-								</dd>
-							</dl>
-							<dl class="">
-								<dt>
-									<a
-										href="https://movie.douban.com/subject/1900841/?from=subject-page">
-										<img
-										src="https://img1.doubanio.com/view/photo/s_ratio_poster/public/p1808872109.webp"
-										alt="窃听风暴" class="" />
-									</a>
-								</dt>
-								<dd>
-									<a
-										href="https://movie.douban.com/subject/1900841/?from=subject-page"
-										class="">窃听风暴</a>
-								</dd>
-							</dl>
+						</c:forEach>
+							
+							
 						</div>
 
 					</div>
@@ -1064,37 +853,26 @@ img {
 		</div>
 
 
-		<div id="footer">
-			<div class="footer-extra"></div>
-
-			<span id="icp" class="fleft gray-link"> &copy; 2005－2017
-				douban.com, all rights reserved 北京豆网科技有限公司 </span> <a
-				href="https://www.douban.com/hnypt/variformcyst.py"
-				style="display: none;"></a> <span class="fright"> <a
-				href="https://www.douban.com/about">关于豆瓣</a> · <a
-				href="https://www.douban.com/jobs">在豆瓣工作</a> · <a
-				href="https://www.douban.com/about?topic=contactus">联系我们</a> · <a
-				href="https://www.douban.com/about?policy=disclaimer">免责声明</a> · <a
-				href="https://help.douban.com/?app=movie" target="_blank">帮助中心</a> ·
-				<a href="https://www.douban.com/doubanapp/">移动应用</a> · <a
-				href="https://www.douban.com/partner/">豆瓣广告</a>
-			</span>
-
+		<div id="footer_ied">
+			<div class="wrap_ied">
+				<p>
+					<a href="//ieg.tencent.com" target="_blank">腾讯互动娱乐</a> | <a
+						href="//game.qq.com/contract.shtml" target="_blank">服务条款</a> | <a
+						href="//adver.qq.com/" target="_blank">广告服务</a> | <a
+						href="//game.qq.com/hr/" target="_blank">腾讯游戏招聘</a> | <a
+						href="//service.qq.com/" target="_blank">腾讯游戏客服</a> | <a
+						href="//game.qq.com/gnav" target="_blank">游戏地图</a> | <a
+						href="//tgact.qq.com/" target="_blank">游戏活动</a> | <a
+						href="https://jiazhang.qq.com/jz/home.html?ADTAG=gamepcbottom"
+						target="_blank">成长守护平台</a> | <a
+						href="//game.qq.com/brand/business.htm" target="_blank">商务合作</a> |
+					<a href="//www.qq.com/map/" target="_blank">网站导航</a>
+				</p>
+				<p class="e">COPYRIGHT © 2017 www.qy.com ALL RIGHTS RESERVED.</p>
+			</div>
 		</div>
 
 	</div>
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 	<!-- sindar17c-docker-->
