@@ -124,11 +124,36 @@ public class FilmController {
 		Integer label1=Integer.parseInt(label.split("/")[0]);
 		Integer label2=Integer.parseInt(label.split("/")[1]);
 		Map<String, Object> paramMap=new HashMap<String, Object>() ;
+		paramMap.put("label", label);
 		paramMap.put("label1", label1);
 		paramMap.put("label2", label2);
 		List<Map<String, Object>> similarFilmList=filmService.querySimilarFilm(paramMap);
 		session.setAttribute("similarFilmList", similarFilmList);
+		//电影的标签
+		String labelQuery="";
+		String labels[]=label.split("/");
+		for(int i=0;i<labels.length;i++){
+			if(i==0) labelQuery=labels[0];
+			else
+			labelQuery+=","+labels[i];
+		}	
+		List<Map<String,Object>> labelList=filmService.queryFilmLabel(labelQuery);
+		session.setAttribute("labelList", labelList);
 		return "redirect:/details.jsp";
+	}
+	/**
+	 *test
+	 * @return
+	 */
+	@RequestMapping("query_test")
+	@ResponseBody
+	// 将方法返回值作为相应数据,而不是返回的页面路径
+	public String Test(Integer film_id,HttpSession session) {
+		Map<String, Object> film=filmService.queryFilmByFilmId(film_id);
+
+		jsonData.setRows(film);
+		// 返回json数据
+		return JSONObject.toJSONString(jsonData);
 	}
 	/**
 	 * 查询电影总条数,得出总页数

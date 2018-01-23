@@ -49,5 +49,10 @@ public class FilmDaoMysqlImpl extends BaseDao implements FilmDao {
 		// TODO Auto-generated method stub
 		return getSqlSession().selectList("querySimilarFilm",paramMap);
 	}
+	@Override
+	public List<Map<String, Object>> queryFilmLabel(String label) {
+		// TODO Auto-generated method stub
+		return getSqlSession().selectList("queryFilmLabel",label);
+	}
 
 }

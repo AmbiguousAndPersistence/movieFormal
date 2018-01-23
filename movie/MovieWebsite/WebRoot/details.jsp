@@ -27,6 +27,9 @@
 <link
 	href="https://img3.doubanio.com/f/shire/420c6a4b676c73bc6af48dfcdd18b662f5c223d7/css/douban.css"
 	rel="stylesheet" type="text/css">
+<%-- <link
+	href="${basePath }/static/css/shire.css"
+	rel="stylesheet" type="text/css"> --%>
 <link
 	href="https://img3.doubanio.com/f/shire/ae3f5a3e3085968370b1fc63afcecb22d3284848/css/separation/_all.css"
 	rel="stylesheet" type="text/css">
@@ -90,7 +93,7 @@ img {
 }
 
 .dlbutton1 {
-	background: #267EE5;
+	background: #b4bac1;
 }
 
 .dlbutton1 {
@@ -103,7 +106,7 @@ img {
 }
 
 .dlbutton2 {
-	background: #267EE5;
+	background: #b4bac1;
 	color: #fff;
 	margin-right: 5px;
 	height: 22px;
@@ -135,7 +138,7 @@ img {
 	type="image/x-icon">
 </head>
 
-<body>
+<body style="background-color: #f0f5eb;">
 
 
 
@@ -333,10 +336,6 @@ img {
 
 											<%-- <fmt:formatNumber var="star" value="${(film['douban_rating']*10-1)/2+2}" pattern="#"/> --%>
 
-											<div class="rating_sum">
-												<a href="collections" class="rating_people"><span
-													property="v:votes">928600</span>人评价</a>
-											</div>
 										</div>
 									</div>
 
@@ -385,12 +384,16 @@ img {
 
 					<link rel="stylesheet"
 						href="https://img3.doubanio.com/f/fanta/ba954f353fb7e2f830059e78c8e9e4791a96a4f6/components/dist/css/answer_entry.css">
-					<div>
+						<c:if test="${not empty film.trailer_link }">
+						<div>
 						<h2>
 							<i class="">预告片欣赏</i> · · · · · ·
 						</h2>
-						<embed src="https://imgcache.qq.com/tencentvideo_v1/playerv3/TPout.swf?max_age=86400&v=20161117&vid=g0379s10h9k&auto=0" allowFullScreen="true" quality="high" width="700" height="400" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>
+						<embed src="${film.trailer_link }" allowFullScreen="true" quality="high" width="700" height="400" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>
+					
 					</div>
+						</c:if>
+					
 					<br></br>
 					<div>
 						<h2>
@@ -446,8 +449,7 @@ img {
 
 
 					<div id="recommendations" class="">
-
-
+					<c:if test="${not empty similarFilmList }">
 						<h2>
 							<i class="">相关电影推荐</i> · · · · · ·
 						</h2>
@@ -475,6 +477,9 @@ img {
 							
 							
 						</div>
+					</c:if>
+
+						
 
 					</div>
 
@@ -800,37 +805,11 @@ img {
 						</h2>
 
 						<div class="tags-body">
-							<a href="/tag/经典" class="">经典</a> <a href="/tag/励志" class="">励志</a>
-							<a href="/tag/信念" class="">信念</a> <a href="/tag/自由" class="">自由</a>
-							<a href="/tag/美国" class="">美国</a> <a href="/tag/人性" class="">人性</a>
-							<a href="/tag/人生" class="">人生</a> <a href="/tag/剧情" class="">剧情</a>
+						<c:forEach items="${labelList }" var="label">
+							<a href="/tag/经典" class="">${label.label_name }</a>
+						</c:forEach>
 						</div>
 					</div>
-
-
-
-					<div class="gray_ad">
-
-						<h2>在哪儿看这部电影
-							&nbsp;&middot;&nbsp;&middot;&nbsp;&middot;&nbsp;&middot;&nbsp;&middot;&nbsp;&middot;
-						</h2>
-
-						<!-- <a href="/subject/1292052/report_subject_error?pname=在线观看"
-							target="_blank" class="report">报错</a> -->
-
-						<ul class="bs">
-							<li><a class="playBtn" data-cn="优酷视频"
-								href="https://www.douban.com/link2/?url=http%3A%2F%2Fcps.youku.com%2Fredirect.html%3Fid%3D0000a213%26url%3Dhttp%3A%2F%2Fv.youku.com%2Fv_show%2Fid_XMjgwNDkwNzE2.html&amp;subtype=3&amp;type=online-video"
-								target="_blank"> 优酷视频 </a> <span class="buylink-price"><span>
-										付费 20 元/月 </span></span></li>
-
-
-						</ul>
-					</div>
-
-
-
-
 
 
 					<br />

@@ -57,4 +57,10 @@ public class FilmServiceMysqlImpl implements FilmService {
 		return filmDao.querySimilarFilm(paramMap);
 	}
 
+	@Override
+	public List<Map<String, Object>> queryFilmLabel(String label) {
+		// TODO Auto-generated method stub
+		return filmDao.queryFilmLabel(label);
+	}
+
 }

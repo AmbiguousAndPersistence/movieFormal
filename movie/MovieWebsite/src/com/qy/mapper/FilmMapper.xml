@@ -70,7 +70,8 @@
 			time,
 			language,
 			label,
-			douban_link
+			douban_link,
+			trailer_link
           from   tb_film   where film_id=#{film_id}   
          ]]>
 	</select>
@@ -159,11 +160,29 @@
 		from
 			tb_film
 		where
-			label like "%${label1}%"
+		label not like "${label}" 
+		and	label like "%${label1}%"
 		and label like "%${label2}%"
 		order by douban_rating desc
 		limit 10 
  
+         ]]>
+	</select>
+	<!-- 查询某部电影的标签 -->
+	<select id="queryFilmLabel"  resultType="map" parameterType="String">
+         <![CDATA[
+          select
+			label_id,
+			label_name
+		from
+			tb_label
+		where
+			label_id in (${_parameter}) 
+		order by
+			field(
+				label_id,
+				${_parameter}
+			)
          ]]>
 	</select>
   </mapper>

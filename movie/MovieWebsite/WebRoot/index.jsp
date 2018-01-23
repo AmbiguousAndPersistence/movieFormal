@@ -73,11 +73,33 @@ img {
 
 </head>
 
-<body>
+<body style="background-color: #f0f5eb;">
 
 	<link href="${basePath }/static/css/bundle.css" rel="stylesheet"
 		type="text/css">
 	<!-- <link href="//img3.doubanio.com/dae/accounts/resources/ecb0b1e/movie/bundle.css" rel="stylesheet" type="text/css"> -->
+	<link rel="stylesheet" href="${basePath }static/layui/dist/css/layui.css"  media="all">
+	<!-- 搜索框 -->
+	<link rel="stylesheet" href="${basePath }static/test/style.css">
+	<ul class="layui-nav">
+		<li class="layui-nav-item"><a href="">控制台<span
+				class="layui-badge">9</span></a></li>
+		<li class="layui-nav-item"><a href="">个人中心<span
+				class="layui-badge-dot"></span></a></li>
+		<li class="layui-nav-item" lay-unselect><a href="javascript:;" onmouseover="showOus()" onmouseout="moveOus()"><img
+				src="http://t.cn/RCzsdCq" class="layui-nav-img">我</a>
+			<span class="us" style="width: 200px;height: 300px;margin-top: -15px;" onmouseover="showOus()" onmouseout="moveOus()">
+				<p class="appintro-title">豆瓣</p>
+				<p class="appintro-title">豆瓣</p>
+				<p class="appintro-title">豆瓣</p>
+			</span></li>
+		<div class="d7">
+	<form>
+	  <input type="text" placeholder="电影、电视剧、综艺、影人">
+	  <button type="submit"></button>
+	</form>
+</div>
+	</ul>
 
 	<div id="db-nav-movie" class="nav">
 		<div class="nav-wrap">
@@ -88,25 +110,6 @@ img {
 					<a
 						style="display: block; width: 100%; height: 100%; overflow: hidden;font-size:40px;font-style: italic; text-align: center;"
 						href="">电影网</a>
-				</div>
-				<div class="nav-search">
-					<form action="https:&#47;&#47;movie.douban.com/subject_search"
-						method="get">
-						<fieldset style="">
-							<legend>搜索：</legend>
-							<label for="inp-query"> </label>
-							<div class="inp-btn" style="float: right;">
-								<input
-									style=" background:url('${basePath}/static/img/test1.png'); "
-									type="submit" value="搜索">
-							</div>
-							<div class="inp" style="float: right;">
-								<input id="inp-query" name="search_text" size="22"
-									maxlength="60" placeholder="电影、电视剧、综艺、影人" value="">
-							</div>
-							<input type="hidden" name="cat" value="1002" />
-						</fieldset>
-					</form>
 				</div>
 			</div>
 		</div>
@@ -2642,6 +2645,31 @@ img {
 				}
 			});
 		})(jQuery);
+	</script>
+	<%-- <script src="${basePath }static/layui/dist/layui.js?t=1515376178709" charset="utf-8"></script> --%>
+	<script src="//res.layui.com/layui/dist/layui.js?t=1515376178709"
+		charset="utf-8"></script>
+	<!-- layui -->
+	<!-- <script>
+		window.global = {
+			pageType : 'demo',
+			preview : function() {
+				var preview = document.getElementById('LAY_preview');
+				return preview ? preview.innerHTML : '';
+			}()
+		};
+		layui.config({
+			base : '//res.layui.com/lay/modules/layui/',
+			version : '1515376178709'
+		}).use('global');
+	</script> -->
+	<script type="text/javascript">
+		function showOus() {
+			$(".us").css("display","block");
+		}
+		function moveOus() {
+			$(".us").css("display","none");
+		}
 	</script>
 </body>
 

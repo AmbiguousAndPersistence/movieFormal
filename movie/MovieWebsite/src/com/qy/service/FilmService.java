@@ -42,4 +42,10 @@ public interface FilmService {
 	 * @return
 	 */
 	public List<Map<String, Object>> querySimilarFilm(Map<String, Object> paramMap);
+	/**
+	 * 查询某部电影的标签
+	 * @param label 标签
+	 * @return
+	 */
+	public List<Map<String, Object>> queryFilmLabel(String label);
 }

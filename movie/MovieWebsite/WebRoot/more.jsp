@@ -187,7 +187,7 @@ img {
 	type="image/x-icon">
 </head>
 
-<body>
+<body style="background-color: #f0f5eb;"> 
 
 
 
