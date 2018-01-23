@@ -1,0 +1,49 @@
+@CHARSET "UTF-8";
+
+form {
+  position: relative;
+  width: 300px;
+  height:20px;
+  margin: 0 auto;
+}
+
+.d7:after {content:""; clear:both; display:table}
+.d7 form {
+  width: auto;
+  float: right;
+  margin-top:10px;
+  margin-right: 60px;
+}
+.d7{
+	
+	float:right;
+}
+
+.d7 input {
+  width: 450px;
+  height: 33px;
+  padding-left: 15px;
+  border-radius: 42px;
+  border: 2px solid #324b4e;
+  background: #F9F0DA;
+  outline: none;
+  position: relative;
+  transition: .3s linear;
+}
+.d7 input:focus {
+  width: 550px;
+}
+.d7 button {
+  width: 48px;
+  height: 35px;
+  background: none;
+  border: none;
+  position: absolute;
+  top: 1px;
+  right: -5px;
+}
+.d7 button:before{
+  content: url("http://localhost:8080/MovieWebsite/static/img/serach.png");
+  font-family: FontAwesome;
+  color: #324b4e;
+}
