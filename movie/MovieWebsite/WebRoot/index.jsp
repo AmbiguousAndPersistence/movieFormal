@@ -29,8 +29,8 @@
 <meta name="description"
 	content="豆瓣电影提供最新的电影介绍及评论包括上映影片的影讯查询及购票服务。你可以记录想看、在看和看过的电影电视剧，顺便打分、写影评。根据你的口味，豆瓣电影会推荐好电影给你。" />
 
-<link href="${basePath }/static/css/bootstrap.min.css" rel="stylesheet">
-<link href="${basePath }/static/css/style.css" rel="stylesheet">
+<link href="${basePath }static/css/bootstrap.min.css" rel="stylesheet">
+<link href="${basePath }static/css/style.css" rel="stylesheet">
 <link rel="apple-touch-icon"
 	href="https://img3.doubanio.com/f/movie/d59b2715fdea4968a450ee5f6c95c7d7a2030065/pics/movie/apple-touch-icon.png">
 <link
@@ -73,7 +73,7 @@ img {
 
 </head>
 
-<body style="background-color: #f0f5eb;">
+<body >
 
 	<link href="${basePath }/static/css/bundle.css" rel="stylesheet"
 		type="text/css">
@@ -81,7 +81,7 @@ img {
 	<link rel="stylesheet" href="${basePath }static/layui/dist/css/layui.css"  media="all">
 	<!-- 搜索框 -->
 	<link rel="stylesheet" href="${basePath }static/test/style.css">
-	<ul class="layui-nav">
+	<ul class="layui-nav" >
 		<li class="layui-nav-item"><a href="">控制台<span
 				class="layui-badge">9</span></a></li>
 		<li class="layui-nav-item"><a href="">个人中心<span
